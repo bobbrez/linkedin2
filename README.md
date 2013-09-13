@@ -53,6 +53,28 @@ client = LinkedIn::Client.new
 client.key # => <your-key>
 ```
 
+### Authentication
+
+Following the [LinkedIn Authentication Documentation](http://developer.linkedin.com/documents/authentication):
+
+*Step 1. Register your application*
+
+Create a LinkedIn Account and register an application
+
+*Step 2a. Generate Authorization Code by redirecting user to LinkedIn's authorization dialog*
+
+```ruby
+# create a client and configure it with your :key, :secret and :redirect_uri. See "Client Configuration" above.
+client.authorize_url # => A URI that will take a user to LinkedIn, ask them to login and redirect to the URI that you configured
+```
+
+*Step 2b. Request Access Token by exchanging the authorization_code for it*
+
+```ruby
+# create a client and configure it with your :key, :secret and :redirect_uri. See "Client Configuration" above.
+client.request_access_token '<token-from-response>'
+```
+
 ## Contributing
 
 1. Fork it
