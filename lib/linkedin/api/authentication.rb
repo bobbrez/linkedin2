@@ -5,14 +5,14 @@ module LinkedIn
       attr_accessor :access_token
 
       def authorize_url(params={})
-        params.reverse_merge! options.to_h.slice(:scope, :state, :redirect_uri)
+        params.reverse_merge! defaults(:scope, :state, :redirect_uri)
         auth_code.authorize_url params
       end
 
       def request_access_token(authorization_code, params={})
         raise Error::CSRF.new state, params[:state] if params[:state] && params[:state] != state
 
-        params.reverse_merge! options.to_h.slice(:redirect_uri)
+        params.reverse_merge! defaults(:redirect_uri)
         opts = { mode: :query, param_name: 'oauth2_access_token' }
 
         token_response = auth_code.get_token authorization_code, params, opts

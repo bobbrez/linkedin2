@@ -47,6 +47,10 @@ module LinkedIn
         return self.options.send(method, *args, &block) if self.options.respond_to? method
         super
       end
+
+      def defaults(*keys)
+        options.to_h.slice keys
+      end
     end
 
     include BaseConfiguration
