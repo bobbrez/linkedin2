@@ -1,6 +1,6 @@
-# Linkedin
+# LinkedIn 2
 
-TODO: Write a gem description
+A modernized LinkedIn Ruby client.
 
 ## Installation
 
@@ -18,7 +18,40 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Client Configuration
+
+Configure an instance directly with a hash:
+
+```ruby
+client = LinkedIn::Client.new key: <your-key>, secret: <your-secret>, redirect_uri: <your-callback>
+```
+
+Or configure an instance directly with the configure method:
+```ruby
+client = LinkedIn::Client.new
+client.configure do |config|
+  config.key = <your-key>
+end
+client.key # => <your-key>
+```
+
+Or configure the gem with a hash:
+
+```ruby
+LinkedIn::Client.configure  key: <your-key>, secret: <your-secret>, redirect_uri: <your-callback>
+client = LinkedIn::Client.new
+client.key # => <your-key>
+```
+
+Or configure the gem with a block:
+
+```ruby
+LinkedIn::Client.configure do |config|
+  config.key = '<your-key>'
+end
+client = LinkedIn::Client.new
+client.key # => <your-key>
+```
 
 ## Contributing
 
