@@ -1,4 +1,10 @@
-require "linkedin/version"
+require 'oauth2'
+require 'byebug'
+require 'active_support/all'
 
-module LinkedIn
-end
+require 'linkedin/version'
+require 'linkedin/error'
+require 'linkedin/utils'
+require 'linkedin/api/authentication'
+require 'linkedin/configuration'
+require 'linkedin/client'
