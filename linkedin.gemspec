@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'linkedin/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "linkedin"
+  spec.name          = 'linkedin2'
   spec.version       = LinkedIn::VERSION
   spec.authors       = ["Bob Breznak"]
   spec.email         = ["bob@evertrue.com"]
   spec.description   = %q{Ruby wrapper for the LinkedIn API}
   spec.summary       = %q{Ruby wrapper for the LinkedIn API}
-  spec.homepage      = "https://github.com/bobbrez/linkedin"
-  spec.license       = "MIT"
+  spec.homepage      = 'https://github.com/bobbrez/linkedin2'
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
