@@ -2,7 +2,6 @@ module LinkedIn
   module API
     module Authentication
       attr_reader :state
-      attr_accessor :access_token
 
       def authorize_url(params={})
         params.reverse_merge! defaults(:scope, :state, :redirect_uri)
@@ -15,9 +14,9 @@ module LinkedIn
         params.reverse_merge! defaults(:redirect_uri)
         opts = { mode: :query, param_name: 'oauth2_access_token' }
 
-        token_response = auth_code.get_token authorization_code, params, opts
-        self.access_token = token_response.token
+        self.access_token = auth_code.get_token authorization_code, params, opts
       end
+
     end
   end
 end
