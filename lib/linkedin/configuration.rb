@@ -14,7 +14,9 @@ module LinkedIn
 
         scope: 'r_basicprofile',
         state: Utils.generate_random_state,
-        redirect_uri: 'http://localhost'
+        redirect_uri: 'http://localhost',
+
+        logger: Logger.new('/dev/null')
       }
 
       def options

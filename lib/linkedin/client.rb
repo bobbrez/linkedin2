@@ -1,16 +1,16 @@
 module LinkedIn
   class Client
-    include Configuration
-    include API::Authentication
-    
     extend Forwardable
+
+    include Configuration
+    include API
 
     attr_reader :access_token
 
-    def_delegators :@access_token, :expires?, :expired?, :request, :get, :post, :put, :patch, :delete, :headers
+    def_delegators :@access_token, :expires?, :expired?, :request
 
-    def initialize(options={})
-      configure options
+    def initialize(options={}, &block)
+      configure options, &block
       self.access_token ||= self.options[:access_token].to_s
     end
 
@@ -19,7 +19,8 @@ module LinkedIn
         faraday.request :json
         faraday.request :linkedin_format, defaults(:request_format)
 
-        faraday.response :logger
+        faraday.response :linkedin_errors
+        faraday.response :logger, logger
         faraday.response :json, content_type: /\bjson$/
 
         faraday.adapter :net_http
@@ -40,7 +41,16 @@ module LinkedIn
       response.body
     end
 
+    def method_missing(method, *args, &body)
+      return simple_request(method, args[0], (args[1] || {}), &body) if %i(get post put patch delete headers).include? method
+      super
+    end
+
     private
+
+    def simple_request(method, path, options={}, &body)
+      request(method, path, options, &body).body
+    end
 
     def auth_code
       connection.auth_code unless connection.nil?

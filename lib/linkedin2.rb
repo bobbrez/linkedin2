@@ -11,6 +11,17 @@ require 'linkedin/version'
 require 'linkedin/error'
 require 'linkedin/utils'
 require 'linkedin/faraday_middleware'
-require 'linkedin/api/authentication'
+require 'linkedin/api'
 require 'linkedin/configuration'
 require 'linkedin/client'
+
+module LinkedIn
+
+  def new(options={}, &block)
+    Client.new options, &block
+  end
+
+  def self.method_missing(method, *args, &block)
+    Client.send(method, *args, &block) if Client.respond_to?(method)
+  end
+end
