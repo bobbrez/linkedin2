@@ -11,16 +11,16 @@ module LinkedIn
 
     def initialize(options={}, &block)
       configure options, &block
-      self.access_token ||= self.options[:access_token].to_s
+      self.access_token ||= self.config[:access_token].to_s
     end
 
     def connection 
-      @connection ||= OAuth2::Client.new(key, secret, oauth2_options) do |faraday|
+      @connection ||= OAuth2::Client.new(config.key, config.secret, oauth2_options) do |faraday|
         faraday.request :json
         faraday.request :linkedin_format, defaults(:request_format)
 
         faraday.response :linkedin_errors
-        faraday.response :logger, logger
+        faraday.response :logger, config.logger
         faraday.response :json, content_type: /\bjson$/
 
         faraday.adapter :net_http
@@ -46,6 +46,26 @@ module LinkedIn
       super
     end
 
+    def self.default_config
+      {
+        authorize_path: '/uas/oauth2/authorization',
+        access_token_path: '/uas/oauth2/accessToken',
+        api_host: 'https://api.linkedin.com',
+        auth_host: 'https://www.linkedin.com',
+        request_format: :json,
+
+        key: nil,
+        secret: nil,
+        access_token: nil,
+
+        scope: 'r_basicprofile',
+        state: Utils.generate_random_state,
+        redirect_uri: 'http://localhost',
+
+        logger: Logger.new('/dev/null')
+      }
+    end
+
     private
 
     def simple_request(method, path, options={}, &body)
@@ -57,14 +77,14 @@ module LinkedIn
     end
 
     def oauth2_options
-      { site: options[:api_host],
+      { site: config.api_host,
         authorize_url: url_for(:authorize),
         token_url: url_for(:access_token) }
     end
 
     def url_for(option_key)
-      host = options[:auth_host]
-      path = options["#{option_key}_path".to_sym]
+      host = config.auth_host
+      path = config["#{option_key}_path".to_sym]
       "#{host}#{path}"
     end
   end

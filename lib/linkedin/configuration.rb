@@ -1,50 +1,32 @@
 module LinkedIn
   module Configuration
     module ClassConfiguration
-      BASE_OPTIONS = {
-        authorize_path: '/uas/oauth2/authorization',
-        access_token_path: '/uas/oauth2/accessToken',
-        api_host: 'https://api.linkedin.com',
-        auth_host: 'https://www.linkedin.com',
-        request_format: :json,
-
-        key: nil,
-        secret: nil,
-        access_token: nil,
-
-        scope: 'r_basicprofile',
-        state: Utils.generate_random_state,
-        redirect_uri: 'http://localhost',
-
-        logger: Logger.new('/dev/null')
-      }
-
-      def options
-        @options ||= reset
+      def config
+        @config ||= reset
       end
 
       def reset
-        @options = OpenStruct.new BASE_OPTIONS
+        @config = OpenStruct.new default_config
       end
     end
 
     module InstanceConfiguration
-      def options
-        @options ||= reset
+      def config
+        @config ||= reset
       end
 
       def reset
-        @options = self.class.options.clone
+        @config = self.class.config.dup
       end
     end
 
     module BaseConfiguration
-      def configure(options={}, &block)
-        self.options.marshal_load self.options.to_h.merge(options)
+      def configure(config={}, &block)
+        self.config.marshal_load self.config.to_h.merge(config)
 
         yield self if block_given?
 
-        self.options
+        self.config
       end
 
       def load(file_path='linkedin.yml')
@@ -53,12 +35,7 @@ module LinkedIn
       end
 
       def defaults(*keys)
-        options.to_h.slice *keys
-      end
-
-      def method_missing(method, *args, &block)
-        return self.options.send(method, *args, &block) if self.options.respond_to? method
-        super
+        config.to_h.slice *keys
       end
     end
 

@@ -11,14 +11,15 @@ require 'hashie'
 require 'linkedin/version'
 require 'linkedin/error'
 require 'linkedin/utils'
+require 'linkedin/configuration'
+require 'linkedin/base'
+require 'linkedin/profile'
+require 'linkedin/industry'
 require 'linkedin/faraday_middleware'
 require 'linkedin/api'
-require 'linkedin/models'
-require 'linkedin/configuration'
 require 'linkedin/client'
 
 module LinkedIn
-
   def new(options={}, &block)
     Client.new options, &block
   end
