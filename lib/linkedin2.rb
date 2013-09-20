@@ -6,6 +6,7 @@ require 'active_support/time'
 require 'faraday'
 require 'faraday_middleware'
 require 'yaml'
+require 'hashie'
 
 require 'linkedin/version'
 require 'linkedin/error'
