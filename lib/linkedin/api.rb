@@ -1,6 +1,7 @@
 require 'linkedin/api/authentication'
+require 'linkedin/api/profiles'
 require 'linkedin/api/industries'
-require 'linkedin/api/people'
 
 include LinkedIn::API::Authentication
-include LinkedIn::API::People
+include LinkedIn::API::Profiles
+include LinkedIn::API::Industries

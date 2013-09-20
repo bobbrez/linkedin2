@@ -16,7 +16,6 @@ module LinkedIn
 
         self.access_token = auth_code.get_token authorization_code, params, opts
       end
-
     end
   end
 end

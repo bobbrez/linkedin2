@@ -1,6 +1,6 @@
 module LinkedIn
   module API
-    module People
+    module Profiles
       def profile(options={})
         get "v1/people/#{options}"
       end

@@ -12,6 +12,7 @@ require 'linkedin/error'
 require 'linkedin/utils'
 require 'linkedin/faraday_middleware'
 require 'linkedin/api'
+require 'linkedin/models'
 require 'linkedin/configuration'
 require 'linkedin/client'
 
