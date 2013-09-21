@@ -1,13 +1,16 @@
 module LinkedIn
   class Error < StandardError
-    attr_accessor :status, :body
+    extend Forwardable
+
+    attr_accessor :request, :response
+    delegate [:status, :body] => :response
 
     def initialize(error_data={})
-      super error_data
-
       if hash = Hash.try_convert(error_data)
-        self.status, self.body = hash[:status], hash[:body]
+        self.request, self.response = hash[:request], hash[:response]
       end
+
+      super (self.response && self.response.body['message']) || error_data
     end
   end
 

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.linkedin.com/v1/people/~?oauth2_access_token=&format=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 401
+      message: 
+    headers:
+      server:
+      - Apache-Coyote/1.1
+      x-li-request-id:
+      - TV9SBPHRO8
+      date:
+      - Sat, 21 Sep 2013 15:36:07 GMT
+      vary:
+      - '*'
+      x-li-format:
+      - json
+      content-type:
+      - application/json;charset=UTF-8
+      x-li-fabric:
+      - PROD-ELA4
+      age:
+      - '0'
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-li-pop:
+      - PROD-ELA4
+      x-li-uuid:
+      - 0KX6sZH0JROQrB7iKysAAA==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "errorCode": 0,
+          "message": "Empty oauth2_access_token",
+          "requestId": "TV9SBPHRO8",
+          "status": 401,
+          "timestamp": 1379777767455
+        }
+    http_version: 
+  recorded_at: Sat, 21 Sep 2013 15:36:08 GMT
+recorded_with: VCR 2.5.0

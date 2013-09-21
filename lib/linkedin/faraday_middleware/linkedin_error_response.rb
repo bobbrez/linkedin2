@@ -17,7 +17,10 @@ module LinkedIn
       end
 
       def response_values(env)
-        { status: env[:status], body: env[:body] }
+        {
+          request: OpenStruct.new(headers: env[:request_headers], uri: env[:url]),
+          response: env[:response]
+        }
       end
     end
   end

@@ -2,6 +2,7 @@ require 'linkedin2'
 
 require 'rspec'
 require 'vcr'
+require 'pry'
 require 'byebug'
 
 VCR.configure do |c|
