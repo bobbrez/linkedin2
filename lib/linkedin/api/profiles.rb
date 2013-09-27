@@ -18,7 +18,6 @@ module LinkedIn
 
         profile options.slice(:selector).merge(selector_option)
       end
-
     end
   end
 end
