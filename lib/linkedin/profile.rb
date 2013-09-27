@@ -1,7 +1,11 @@
 module LinkedIn
   class Profile < Base
+    def connections
+      @connections ||= client.connections(selector: { id: self.id })['values'].map { |c| Profile.new c }
+    end
+
     def self.current(*fields)
-      find_by( { self: true }, *fields)
+      find_by( { }, *fields)
     end
 
     def self.find(id, *fields)

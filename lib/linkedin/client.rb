@@ -16,6 +16,7 @@ module LinkedIn
 
     def connection 
       @connection ||= OAuth2::Client.new(config.key, config.secret, oauth2_options) do |faraday|
+        faraday.request :url_encoded
         faraday.request :json
         faraday.request :linkedin_format, defaults(:request_format)
 
