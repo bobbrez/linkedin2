@@ -1,4 +1,3 @@
-require 'byebug'
 module LinkedIn
   module API
     module Permissions
