@@ -2,15 +2,10 @@ module LinkedIn
   class Base
     attr_reader :attributes
 
-    include Configuration
-
     def initialize(attributes={})
       @attributes = Hashie::Mash.new attributes
     end
 
-    def client
-      config.client
-    end
 
     def method_missing(method, *args, &block)
       return @attributes.send(method, *args, &block) if @attributes.respond_to?(method)
@@ -22,12 +17,12 @@ module LinkedIn
       super
     end
 
-    def self.client
-      config.client
+    def client
+      LinkedIn.new
     end
 
-    def self.default_config
-      { client: LinkedIn::Client.new }
+    def self.client
+      LinkedIn.new
     end
   end
 end

@@ -24,7 +24,7 @@ module LinkedIn
       def configure(config={}, &block)
         self.config.marshal_load self.config.to_h.merge(config)
 
-        yield self if block_given?
+        yield self.config if block_given?
 
         self.config
       end

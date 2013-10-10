@@ -13,7 +13,7 @@ module LinkedIn
     end
 
     def self.find_by(selector, *fields)
-      fields = fields.blank? ? API::Permissions.r_basicprofile : fields
+      fields = fields.blank? ? LinkedIn.r_basicprofile : fields
       Profile.new client.profile( selector: selector, fields: fields )
     end
   end

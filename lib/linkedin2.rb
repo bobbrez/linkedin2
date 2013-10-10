@@ -28,4 +28,32 @@ module LinkedIn
   def self.method_missing(method, *args, &block)
     Client.send(method, *args, &block) if Client.respond_to?(method)
   end
+
+  def self.r_basicprofile
+    @@r_basicprofile ||= API::Permissions::R_BASICPROFILE
+  end
+
+  def self.r_emailaddress
+    @@r_emailaddress ||= API::Permissions::R_EMAIL
+  end
+
+  def self.r_fullprofile
+    @@r_fullprofile ||= API::Permissions::R_FULLPROFILE
+  end
+
+  def self.r_contactinfo
+    @@r_contactinfo ||= API::Permissions::R_CONTACTINFO
+  end
+
+  def self.r_network
+    @@r_network ||= API::Permissions::R_NETWORK
+  end
+
+  def self.rw_groups
+    @@rw_groups ||= API::Permissions::RW_GROUPS
+  end
+
+  def self.rw_nus
+    @@rw_nus ||= API::Permissions::RW_NUS
+  end
 end
