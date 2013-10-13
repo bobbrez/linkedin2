@@ -1,10 +1,13 @@
 require 'spec_helper'
 
 describe LinkedIn::FaradayMiddleware::LinkedinErrorResponse, vcr: { cassette_name: 'invalid' } do
+  subject { LinkedIn::Client.new(access_token: nil) }
+
   describe '#on_error' do
     it 'raises an error with the status and body reported by Rack included' do
       begin
-        LinkedIn::Client.new.profile
+        subject.profile
+        raise 'Should have encountered an exception'
       rescue LinkedIn::Error => error
         error.status.should eq 401
         error.body.should eq({
@@ -19,7 +22,8 @@ describe LinkedIn::FaradayMiddleware::LinkedinErrorResponse, vcr: { cassette_nam
 
     it 'uses the message returned by LinkedIn' do
       begin
-        LinkedIn::Client.new.profile
+        subject.profile
+        raise 'Should have encountered an exception'
       rescue LinkedIn::Error => err
         err.message.should eq 'Empty oauth2_access_token'
       end
@@ -27,7 +31,8 @@ describe LinkedIn::FaradayMiddleware::LinkedinErrorResponse, vcr: { cassette_nam
 
     it 'includes the Faraday request/response object for further introspection by the consumer' do
       begin
-        LinkedIn::Client.new.profile
+        subject.profile
+        raise 'Should have encountered an exception'
       rescue LinkedIn::Error => err
         err.request.headers['User-Agent'].should eq 'Faraday v0.8.8'
         err.response.headers['Server'].should eq 'Apache-Coyote/1.1'
@@ -37,7 +42,8 @@ describe LinkedIn::FaradayMiddleware::LinkedinErrorResponse, vcr: { cassette_nam
     it 'includes the LinkedIn error code' do
       pending 'These appear to be broken, so fuck \'em. http://developer.linkedin.com/forum/error-codes-are-not-set'
       begin
-        LinkedIn::Client.new.profile
+        subject.profile
+        raise 'Should have encountered an exception'
       rescue LinkedIn::Error => err
         pending 'we need to discuss camelCase vs snake_case. LinkedIn returns "errorCode"'
         err.error_code.should eq 
