@@ -4,16 +4,18 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
   subject { LinkedIn::Client.new }
 
   describe '#profile' do
-    it 'should be able to view the account profile of the current user' do
+    it 'should be able to fetch the account profile of the current user' do
       profile = subject.profile
 
       profile['firstName'].should eq 'Josh'
       profile['lastName'].should eq 'Testjordan'
     end
 
-    it "should be able to view public profiles" do
-      pending "https://api.linkedin.com/v1/people/id=123"
-      subject.profile(:id => 123)
+    it "should be able to fetch publicly available profiles" do
+      profile = subject.profile(selector: 'id=Fy5e5a4mqr')
+      
+      profile['firstName'].should eq 'Sir Richard'
+      profile['lastName'].should eq 'B.'
     end
 
     it "should be able to view connections" do
