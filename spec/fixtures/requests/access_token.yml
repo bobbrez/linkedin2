@@ -2,36 +2,69 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.linkedin.com/uas/oauth/accessToken
+    uri: https://www.linkedin.com/uas/oauth2/accessToken?format=json
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: grant_type=authorization_code&code=AQSvETxzB7UhGyMzz5SpuZBfHjHNsZlinzxrJxCndl3u1W3UE1iwWR_6emSmaY02iJxIKZ6qrXBmuE7CMv9WO-U7mQSV0dnm0E2-Je4uBrKVOpHSilU&client_id=f7cq90292zdf&client_secret=h97K0YuF0KCnx4kW&state=fekrnNmYDOlPHyrtzyJRYEHdnnLPBghLcdwKxSODAMEVmdEjkm&redirect_uri=http%3A%2F%2Flocalhost.com
     headers:
       User-Agent:
-      - OAuth gem v0.4.4
-      Authorization:
-      - OAuth oauth_body_hash="2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D", oauth_consumer_key="eAI15DqRUTTd7OuQJBG3Mo0aw2Ekx5yoLX3x3NaLnbTnZbaU46OEii7uNTKijII4",
-        oauth_nonce="ztYyddIoKJ8flDjBJyveOSqm96CLaEM4QpOC0CSW0E", oauth_signature="NSp3ZDtycelP7wsDM7dsuDTZGys%3D",
-        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1297095033", oauth_token="2f5b42dd-1e0e-4f8f-a03c-1e510bde5935",
-        oauth_verifier="25038", oauth_version="1.0"
-      Content-Length:
-      - '0'
+      - Faraday v0.8.8
+      Content-Type:
+      - application/x-www-form-urlencoded
   response:
     status:
       code: 200
-      message: OK
+      message: 
     headers:
-      Content-Type:
-      - text/plain
-      Server:
+      server:
       - Apache-Coyote/1.1
-      Date:
-      - Mon, 07 Feb 2011 16:10:34 GMT
-      Content-Length:
-      - '156'
+      p3p:
+      - CP="CAO DSP COR CUR ADMi DEVi TAIi PSAi PSDi IVAi IVDi CONi OUR DELi SAMi
+        UNRi PUBi OTRi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT POL PRE"
+      x-li-uuid:
+      - aE8h3u2c4XGMPx8wUic1uw==
+      vary:
+      - Accept-Encoding
+      content-type:
+      - application/json;charset=UTF-8
+      content-language:
+      - en-US
+      content-length:
+      - '220'
+      date:
+      - Sun, 13 Oct 2013 18:19:42 GMT
+      x-li-fabric:
+      - PROD-ELA4
+      access-control-allow-origin:
+      - https://www.linkedin.com
+      set-cookie:
+      - _lipt=deleteMe; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/, leo_auth_token="GST:8gPEcErPHirsLszRTwGkHsCSm3M7ft8j6jug6Y51J5M3LILjbMp4UU:1381688382:787e1971c2859431eb8f59eb58262462f3dcd578";
+        Version=1; Max-Age=1799; Expires=Sun, 13-Oct-2013 18:49:41 GMT; Path=/, sl="delete
+        me"; Version=1; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/,
+        sl="delete me"; Version=1; Domain=.www.linkedin.com; Max-Age=0; Expires=Thu,
+        01-Jan-1970 00:00:10 GMT; Path=/, s_leo_auth_token="delete me"; Version=1;
+        Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/, JSESSIONID="ajax:4241175456742524062";
+        Version=1; Path=/, visit="v=1&G"; Version=1; Max-Age=63072000; Expires=Tue,
+        13-Oct-2015 18:19:42 GMT; Path=/, lang="v=2&lang=en-us"; Version=1; Domain=linkedin.com;
+        Path=/, bcookie="v=2&8a30a3c7-8392-404f-8262-8139727cde11"; domain=.linkedin.com;
+        Path=/; Expires=Wed, 14-Oct-2015 05:57:14 GMT, bscookie="v=1&2013101318194258f227ac-6770-4b8d-81cb-92ec9c4d9fc7AQHiiQ5pbgioA7-123KVjtJ5qmZtVmky";
+        domain=.www.linkedin.com; Path=/; Secure; Expires=Wed, 14-Oct-2015 05:57:14
+        GMT; HttpOnly, X-LI-IDC=C1
+      pragma:
+      - no-cache
+      expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      cache-control:
+      - no-cache, no-store
+      age:
+      - '0'
+      connection:
+      - keep-alive
+      x-li-pop:
+      - PROD-ELA4
     body:
       encoding: UTF-8
-      string: oauth_token=28774cd4-fbe1-4e6e-a05e-1243f6471933&oauth_token_secret=2fafe259-976e-41ad-a6f5-d26bbba42923&oauth_expires_in=0&oauth_authorization_expires_in=0
-    http_version: '1.1'
-  recorded_at: Wed, 10 Apr 2013 22:06:51 GMT
+      string: '{"expires_in":5183999,"access_token":"AQXjfyOrBFhWJIkcBXi1ubzLZQhQc2CVGoXdgo2I6wirbJejAwhXDIYu-3gnADeNVeRey_m9jvohTG9rAjFhzakL7UkTbXIBC_GlwTHhhUWHTXzWdRgtVu-al9BQ3bDGCkbsaiCJySOkUn5YFPJE-7eFkA5MwZi_4PJZoep0D80yI8svMkk"}'
+    http_version: 
+  recorded_at: Sun, 13 Oct 2013 18:19:50 GMT
 recorded_with: VCR 2.5.0

@@ -1,12 +1,14 @@
 require 'spec_helper'
 
-describe LinkedIn::API::Profiles do
-  subject { LinkedIn::Client }
+describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
+  subject { LinkedIn::Client.new }
 
   describe '#profile' do
-    it "should be able to view the account profile" do
-      pending "https://api.linkedin.com/v1/people/~"
-      subject.profile
+    it 'should be able to view the account profile of the current user' do
+      profile = subject.profile
+
+      profile['firstName'].should eq 'Josh'
+      profile['lastName'].should eq 'Testjordan'
     end
 
     it "should be able to view public profiles" do
