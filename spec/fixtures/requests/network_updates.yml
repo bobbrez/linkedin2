@@ -1,0 +1,743 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.linkedin.com/v1/people/~/network/updates?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - Apache-Coyote/1.1
+      x-li-request-id:
+      - 5AV2JQKV2I
+      vary:
+      - '*'
+      x-li-format:
+      - json
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Sun, 13 Oct 2013 23:16:39 GMT
+      x-li-fabric:
+      - PROD-ELA4
+      access-control-allow-origin:
+      - https://www.linkedin.com
+      age:
+      - '1'
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-li-pop:
+      - PROD-ELA4
+      x-li-uuid:
+      - qFtSpnfOLBOwaXMbLSsAAA==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_count": 10,
+          "_start": 0,
+          "_total": 13,
+          "values": [
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1381695002000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:Dack"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/mbAZ4HR8RV"
+                },
+                "firstName": "Josh",
+                "headline": "No-bullshit Software Engineer",
+                "id": "mbAZ4HR8RV",
+                "lastName": "Jordan",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_tK6jMqPfpQ370lofKczaMnrmy_kxjqUfrB-CMBig_LK7GKu7On9AccBPtmX8Y1siPPXinrgl7GAr",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=18939563&authType=name&authToken=Dack&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "NCON-18939563-8e591d54*35afb*34269*38933*301715ac5349d-*1",
+              "updateType": "NCON"
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1381693616000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:24s3"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/4eTIydMs1T"
+                },
+                "firstName": "Bob",
+                "headline": "Guy at EverTrue",
+                "id": "4eTIydMs1T",
+                "lastName": "Breznak",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_zR-8K5tqrNEyhBCYz0APKFGVrqDrGlCYcx60KFPQftJhjzvOMjGuObFeOJSfTn_tq4rYx8SQ5fvK",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=28903483&authType=name&authToken=24s3&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "NCON-28903483-378380f9*38bd6*347e5*3b636*38c5589b6692d-*1",
+              "updateType": "NCON"
+            },
+            {
+              "isCommentable": true,
+              "isLikable": true,
+              "isLiked": true,
+              "likes": {
+                "_total": 1,
+                "values": [{"person": {
+                  "firstName": "Josh",
+                  "headline": "Test Engineer at LinkedIn2 Gem",
+                  "id": "cDmdM9cb0H",
+                  "lastName": "Testjordan"
+                }}]
+              },
+              "numLikes": 1,
+              "timestamp": 1381419977401,
+              "updateComments": {
+                "_total": 1,
+                "values": [{
+                  "comment": "Whaaaat",
+                  "id": 5795295755790999552,
+                  "person": {
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:lTbb"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/cDmdM9cb0H"
+                    },
+                    "firstName": "Josh",
+                    "headline": "Test Engineer at LinkedIn2 Gem",
+                    "id": "cDmdM9cb0H",
+                    "lastName": "Testjordan",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=292221312&authType=name&authToken=lTbb&trk=api*a3296321*s3370311*"}
+                  },
+                  "sequenceNumber": 1,
+                  "timestamp": 1381706181420
+                }]
+              },
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:Dack"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/mbAZ4HR8RV"
+                },
+                "firstName": "Josh",
+                "headline": "No-bullshit Software Engineer",
+                "id": "mbAZ4HR8RV",
+                "lastName": "Jordan",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_tK6jMqPfpQ370lofKczaMnrmy_kxjqUfrB-CMBig_LK7GKu7On9AccBPtmX8Y1siPPXinrgl7GAr",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=18939563&authType=name&authToken=Dack&trk=api*a3296321*s3370311*"},
+                "skills": {
+                  "_count": 2,
+                  "values": [
+                    {"skill": {"name": "OOP"}},
+                    {"skill": {"name": "Distributed Systems"}}
+                  ]
+                }
+              }},
+              "updateKey": "PROF-18939563-5794095336964247552-*1",
+              "updateType": "PROF",
+              "updatedFields": {
+                "_count": 1,
+                "values": [{"name": "person/skills"}]
+              }
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1381359223000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:Dack"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/mbAZ4HR8RV"
+                },
+                "connections": {
+                  "_total": 1,
+                  "values": [{
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:HNEa"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/eQwOZJj2ww"
+                    },
+                    "firstName": "Christopher",
+                    "headline": "Software Engineer",
+                    "id": "eQwOZJj2ww",
+                    "lastName": "LaPointe",
+                    "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_ZgfI5GCs5EsC3Wpz4pxN5TNBL7Y7_Wgzs0RN5T5WVdExyDEvqU0FI3AbICOKhmyJMYDzE6U3gnWZ",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=129352139&authType=name&authToken=HNEa&trk=api*a3296321*s3370311*"}
+                  }]
+                },
+                "firstName": "Josh",
+                "headline": "No-bullshit Software Engineer",
+                "id": "mbAZ4HR8RV",
+                "lastName": "Jordan",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_tK6jMqPfpQ370lofKczaMnrmy_kxjqUfrB-CMBig_LK7GKu7On9AccBPtmX8Y1siPPXinrgl7GAr",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=18939563&authType=name&authToken=Dack&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "CONN-18939563-*2-*1",
+              "updateType": "CONN"
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1381243641000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:24s3"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/4eTIydMs1T"
+                },
+                "connections": {
+                  "_total": 1,
+                  "values": [{
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:BLmC"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/0nY7GzaRyF"
+                    },
+                    "firstName": "Nick",
+                    "headline": "Application Analyst 1 at Lifespan",
+                    "id": "0nY7GzaRyF",
+                    "lastName": "Bebel",
+                    "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_jbmxXPYjVoL3ziMn0hO2XrH14f-_vQMnxLshXrMfFo6PEGm9lTYPEKD39Tty9TZspkuTIBw4-fTh",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=28903441&authType=name&authToken=BLmC&trk=api*a3296321*s3370311*"}
+                  }]
+                },
+                "firstName": "Bob",
+                "headline": "Guy at EverTrue",
+                "id": "4eTIydMs1T",
+                "lastName": "Breznak",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_zR-8K5tqrNEyhBCYz0APKFGVrqDrGlCYcx60KFPQftJhjzvOMjGuObFeOJSfTn_tq4rYx8SQ5fvK",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=28903483&authType=name&authToken=24s3&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "CONN-28903483-*2-*1",
+              "updateType": "CONN"
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1380762807000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:24s3"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/4eTIydMs1T"
+                },
+                "connections": {
+                  "_total": 1,
+                  "values": [{
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:1Z0S"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/Uj8HdWXG29"
+                    },
+                    "firstName": "Alexandra",
+                    "headline": "UX Designer at PayPal Media Network",
+                    "id": "Uj8HdWXG29",
+                    "lastName": "Moran",
+                    "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_-HOmp-7NvtbyFCAiy2ylpKS4cBNt53AiKEoAplgLHN8Cs56_YaaCtAdIJ0qS66rf1IpK19_Nalma",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=48426136&authType=name&authToken=1Z0S&trk=api*a3296321*s3370311*"}
+                  }]
+                },
+                "firstName": "Bob",
+                "headline": "Guy at EverTrue",
+                "id": "4eTIydMs1T",
+                "lastName": "Breznak",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_zR-8K5tqrNEyhBCYz0APKFGVrqDrGlCYcx60KFPQftJhjzvOMjGuObFeOJSfTn_tq4rYx8SQ5fvK",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=28903483&authType=name&authToken=24s3&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "CONN-28903483-*2-*1",
+              "updateType": "CONN"
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1380636118000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:24s3"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/4eTIydMs1T"
+                },
+                "connections": {
+                  "_total": 1,
+                  "values": [{
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:6S_r"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/cT-XE1up60"
+                    },
+                    "firstName": "Slava",
+                    "headline": "Co-founder bikeGOTHAM.com, Real Estate Investor",
+                    "id": "cT-XE1up60",
+                    "lastName": "Menn",
+                    "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_9G8uJ8omlGSSvvxG956PJixtPhVjzvOGN8N1JiSauLaDoAdCsXK8B_JhgmsGnt0ac3Ct9kPQ8umx",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=5589763&authType=name&authToken=6S_r&trk=api*a3296321*s3370311*"}
+                  }]
+                },
+                "firstName": "Bob",
+                "headline": "Guy at EverTrue",
+                "id": "4eTIydMs1T",
+                "lastName": "Breznak",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_zR-8K5tqrNEyhBCYz0APKFGVrqDrGlCYcx60KFPQftJhjzvOMjGuObFeOJSfTn_tq4rYx8SQ5fvK",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=28903483&authType=name&authToken=24s3&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "CONN-28903483-*2-*1",
+              "updateType": "CONN"
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1380584638000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:24s3"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/4eTIydMs1T"
+                },
+                "connections": {
+                  "_total": 1,
+                  "values": [{
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:nLJu"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/Y3O2vpIsLb"
+                    },
+                    "firstName": "Gabriel",
+                    "headline": "Enthusiastic book reader and morning jogger, CEO",
+                    "id": "Y3O2vpIsLb",
+                    "lastName": "Blanchet",
+                    "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_fDcXEjwwhWlLo0uXfwbUEYEHCanoeyuXTWiUEYWcgDCVB4Uk_IFHXOjJuQ9zIUSHaazV5JctWX_5",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=64337773&authType=name&authToken=nLJu&trk=api*a3296321*s3370311*"}
+                  }]
+                },
+                "firstName": "Bob",
+                "headline": "Guy at EverTrue",
+                "id": "4eTIydMs1T",
+                "lastName": "Breznak",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_zR-8K5tqrNEyhBCYz0APKFGVrqDrGlCYcx60KFPQftJhjzvOMjGuObFeOJSfTn_tq4rYx8SQ5fvK",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=28903483&authType=name&authToken=24s3&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "CONN-28903483-*2-*1",
+              "updateType": "CONN"
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1380584603000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:24s3"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/4eTIydMs1T"
+                },
+                "connections": {
+                  "_total": 1,
+                  "values": [{
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:eOI_"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/xLHgsOPJ2M"
+                    },
+                    "firstName": "Michael",
+                    "headline": "Northeastern University Finance & Music Industry Graduate seeking Finance/Real Estate **career opportunities**",
+                    "id": "xLHgsOPJ2M",
+                    "lastName": "Malmstone",
+                    "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_ZSvRnX4kmFVDW4RYZ7LHnQsQubD7WORYVfTknbWvPkJxns2Oqw5c4FjUCfSKoJVtMmBLMhRQnogM",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=108343597&authType=name&authToken=eOI_&trk=api*a3296321*s3370311*"}
+                  }]
+                },
+                "firstName": "Bob",
+                "headline": "Guy at EverTrue",
+                "id": "4eTIydMs1T",
+                "lastName": "Breznak",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_zR-8K5tqrNEyhBCYz0APKFGVrqDrGlCYcx60KFPQftJhjzvOMjGuObFeOJSfTn_tq4rYx8SQ5fvK",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=28903483&authType=name&authToken=24s3&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "CONN-28903483-*2-*1",
+              "updateType": "CONN"
+            },
+            {
+              "isCommentable": false,
+              "isLikable": false,
+              "timestamp": 1380213420000,
+              "updateContent": {"person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:Dack"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/mbAZ4HR8RV"
+                },
+                "connections": {
+                  "_total": 1,
+                  "values": [{
+                    "apiStandardProfileRequest": {
+                      "headers": {
+                        "_total": 1,
+                        "values": [{
+                          "name": "x-li-auth-token",
+                          "value": "name:75Di"
+                        }]
+                      },
+                      "url": "http://api.linkedin.com/v1/people/hCA94wLLMf"
+                    },
+                    "firstName": "Jaclyn",
+                    "headline": "Manager, HR Partnerships at Vistaprint",
+                    "id": "hCA94wLLMf",
+                    "lastName": "Matarazzo, PHR",
+                    "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_U-ft0k91NBf21LBmJrp306BOZ9wmPLbmJ1RD06b7b1xYuTKacq0YlQ1TnZIlrGQCsADurTvCTTc6",
+                    "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=4293432&authType=name&authToken=75Di&trk=api*a3296321*s3370311*"}
+                  }]
+                },
+                "firstName": "Josh",
+                "headline": "No-bullshit Software Engineer",
+                "id": "mbAZ4HR8RV",
+                "lastName": "Jordan",
+                "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_tK6jMqPfpQ370lofKczaMnrmy_kxjqUfrB-CMBig_LK7GKu7On9AccBPtmX8Y1siPPXinrgl7GAr",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=18939563&authType=name&authToken=Dack&trk=api*a3296321*s3370311*"}
+              }},
+              "updateKey": "CONN-18939563-*2-*1",
+              "updateType": "CONN"
+            }
+          ]
+        }
+    http_version: 
+  recorded_at: Sun, 13 Oct 2013 23:16:44 GMT
+- request:
+    method: get
+    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - Apache-Coyote/1.1
+      x-li-request-id:
+      - 29Q4VV0LNC
+      vary:
+      - '*'
+      x-li-format:
+      - json
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Sun, 13 Oct 2013 23:18:38 GMT
+      x-li-fabric:
+      - PROD-ELA4
+      access-control-allow-origin:
+      - https://www.linkedin.com
+      age:
+      - '1'
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-li-pop:
+      - PROD-ELA4
+      x-li-uuid:
+      - iO9CqJPOLBNwzB2JRisAAA==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "isCommentable": true,
+          "isLikable": true,
+          "isLiked": true,
+          "likes": {
+            "_total": 1,
+            "values": [{"person": {
+              "firstName": "Josh",
+              "headline": "Test Engineer at LinkedIn2 Gem",
+              "id": "cDmdM9cb0H",
+              "lastName": "Testjordan"
+            }}]
+          },
+          "numLikes": 1,
+          "timestamp": 1381419977401,
+          "updateComments": {
+            "_total": 1,
+            "values": [{
+              "comment": "Whaaaat",
+              "id": 5795295755790999552,
+              "person": {
+                "apiStandardProfileRequest": {
+                  "headers": {
+                    "_total": 1,
+                    "values": [{
+                      "name": "x-li-auth-token",
+                      "value": "name:lTbb"
+                    }]
+                  },
+                  "url": "http://api.linkedin.com/v1/people/cDmdM9cb0H"
+                },
+                "firstName": "Josh",
+                "headline": "Test Engineer at LinkedIn2 Gem",
+                "id": "cDmdM9cb0H",
+                "lastName": "Testjordan",
+                "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=292221312&authType=name&authToken=lTbb&trk=api*a3296321*s3370311*"}
+              },
+              "sequenceNumber": 1,
+              "timestamp": 1381706181420
+            }]
+          },
+          "updateContent": {"person": {
+            "apiStandardProfileRequest": {
+              "headers": {
+                "_total": 1,
+                "values": [{
+                  "name": "x-li-auth-token",
+                  "value": "name:Dack"
+                }]
+              },
+              "url": "http://api.linkedin.com/v1/people/mbAZ4HR8RV"
+            },
+            "firstName": "Josh",
+            "headline": "No-bullshit Software Engineer",
+            "id": "mbAZ4HR8RV",
+            "lastName": "Jordan",
+            "pictureUrl": "http://m.c.lnkd.licdn.com/mpr/mprx/0_tK6jMqPfpQ370lofKczaMnrmy_kxjqUfrB-CMBig_LK7GKu7On9AccBPtmX8Y1siPPXinrgl7GAr",
+            "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=18939563&authType=name&authToken=Dack&trk=api*a3296321*s3370311*"},
+            "skills": {
+              "_count": 2,
+              "values": [
+                {"skill": {"name": "OOP"}},
+                {"skill": {"name": "Distributed Systems"}}
+              ]
+            }
+          }},
+          "updateKey": "PROF-18939563-5794095336964247552-*1",
+          "updateType": "PROF",
+          "updatedFields": {
+            "_count": 1,
+            "values": [{"name": "person/skills"}]
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 13 Oct 2013 23:18:45 GMT
+- request:
+    method: get
+    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1/update-comments?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - Apache-Coyote/1.1
+      x-li-request-id:
+      - HSMU2YP5S5
+      vary:
+      - '*'
+      x-li-format:
+      - json
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Sun, 13 Oct 2013 23:18:47 GMT
+      x-li-fabric:
+      - PROD-ELA4
+      access-control-allow-origin:
+      - https://www.linkedin.com
+      age:
+      - '0'
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-li-pop:
+      - PROD-ELA4
+      x-li-uuid:
+      - uPNvqZXOLBOQLrUQSSsAAA==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_total": 1,
+          "values": [{
+            "comment": "Whaaaat",
+            "id": 5795295755790999552,
+            "person": {
+              "apiStandardProfileRequest": {
+                "headers": {
+                  "_total": 1,
+                  "values": [{
+                    "name": "x-li-auth-token",
+                    "value": "name:lTbb"
+                  }]
+                },
+                "url": "http://api.linkedin.com/v1/people/cDmdM9cb0H"
+              },
+              "firstName": "Josh",
+              "headline": "Test Engineer at LinkedIn2 Gem",
+              "id": "cDmdM9cb0H",
+              "lastName": "Testjordan",
+              "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=292221312&authType=name&authToken=lTbb&trk=api*a3296321*s3370311*"}
+            },
+            "sequenceNumber": 1,
+            "timestamp": 1381706181420
+          }]
+        }
+    http_version: 
+  recorded_at: Sun, 13 Oct 2013 23:18:53 GMT
+- request:
+    method: get
+    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1/likes?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - Apache-Coyote/1.1
+      x-li-request-id:
+      - 1EAVI7D3AZ
+      vary:
+      - '*'
+      x-li-format:
+      - json
+      content-type:
+      - application/json;charset=UTF-8
+      date:
+      - Sun, 13 Oct 2013 23:18:55 GMT
+      x-li-fabric:
+      - PROD-ELA4
+      access-control-allow-origin:
+      - https://www.linkedin.com
+      age:
+      - '1'
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-li-pop:
+      - PROD-ELA4
+      x-li-uuid:
+      - AApNlJfOLBMwdaIwSSsAAA==
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "_total": 1,
+          "values": [{"person": {
+            "firstName": "Josh",
+            "headline": "Test Engineer at LinkedIn2 Gem",
+            "id": "cDmdM9cb0H",
+            "lastName": "Testjordan"
+          }}]
+        }
+    http_version: 
+  recorded_at: Sun, 13 Oct 2013 23:19:02 GMT
+recorded_with: VCR 2.5.0

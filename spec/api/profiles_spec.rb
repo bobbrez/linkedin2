@@ -4,38 +4,28 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
   subject { LinkedIn::Client.new }
 
   describe '#profile' do
-    it 'should be able to view the account profile of the current user' do
+    it 'should be able to fetch the profile of the current user' do
       profile = subject.profile
 
       profile['firstName'].should eq 'Josh'
       profile['lastName'].should eq 'Testjordan'
     end
 
-    it "should be able to view public profiles" do
-      pending "https://api.linkedin.com/v1/people/id=123"
-      subject.profile(:id => 123)
+    it "should be able to fetch publicly available profiles" do
+      profile = subject.profile(selector: 'id=Fy5e5a4mqr')
+      
+      profile['firstName'].should eq 'Sir Richard'
+      profile['lastName'].should eq 'B.'
     end
+  end
 
-    it "should be able to view connections" do
-      pending "https://api.linkedin.com/v1/people/~/connections"
-      subject.connections
+  describe '#connections' do
+    it "should be able to fetch the connections of the current user" do
+      subject.connections['values'].should have(2).things
     end
+  end
 
-    it "should be able to view network_updates" do
-      pending "https://api.linkedin.com/v1/people/~/network/updates"
-      subject.network_updates
-    end
-
-    it "should be able to view network_update's comments" do
-      pending "https://api.linkedin.com/v1/people/~/network/updates/key=network_update_key/update-comments"
-      subject.share_comments("network_update_key")
-    end
-
-    it "should be able to view network_update's likes" do
-      pending "https://api.linkedin.com/v1/people/~/network/updates/key=network_update_key/likes"
-      subject.share_likes("network_update_key")
-    end
-
+  context 'todo' do
     it "should be able to search with a keyword if given a String" do
       pending "https://api.linkedin.com/v1/people-search?keywords=business"
       subject.search("business")
