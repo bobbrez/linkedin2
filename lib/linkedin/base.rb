@@ -6,7 +6,6 @@ module LinkedIn
       @attributes = Hashie::Mash.new attributes
     end
 
-
     def method_missing(method, *args, &block)
       return @attributes.send(method, *args, &block) if @attributes.respond_to?(method)
       super
@@ -18,11 +17,15 @@ module LinkedIn
     end
 
     def client
-      LinkedIn.new
+      Base.client
     end
 
     def self.client
-      LinkedIn.new
+      @@client ||= self.reset_client
+    end
+
+    def self.reset_client
+      @@client = LinkedIn.new
     end
   end
 end

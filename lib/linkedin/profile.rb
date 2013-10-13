@@ -13,7 +13,7 @@ module LinkedIn
     end
 
     def self.find_by(selector, *fields)
-      fields = fields.blank? ? LinkedIn.r_basicprofile : fields
+      fields = LinkedIn.r_basicprofile if fields.blank?
       Profile.new client.profile( selector: selector, fields: fields )
     end
   end
