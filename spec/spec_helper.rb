@@ -18,5 +18,5 @@ end
 
 LinkedIn.load('spec/test_app.yml')
 LinkedIn::Client.configure do |config|
-  config.access_token = 'AQXjfyOrBFhWJIkcBXi1ubzLZQhQc2CVGoXdgo2I6wirbJejAwhXDIYu-3gnADeNVeRey_m9jvohTG9rAjFhzakL7UkTbXIBC_GlwTHhhUWHTXzWdRgtVu-al9BQ3bDGCkbsaiCJySOkUn5YFPJE-7eFkA5MwZi_4PJZoep0D80yI8svMkk'
+  config.access_token = 'AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8'
 end

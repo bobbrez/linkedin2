@@ -5,7 +5,7 @@ http_interactions:
     uri: https://www.linkedin.com/uas/oauth2/accessToken?format=json
     body:
       encoding: UTF-8
-      string: grant_type=authorization_code&code=AQSvETxzB7UhGyMzz5SpuZBfHjHNsZlinzxrJxCndl3u1W3UE1iwWR_6emSmaY02iJxIKZ6qrXBmuE7CMv9WO-U7mQSV0dnm0E2-Je4uBrKVOpHSilU&client_id=f7cq90292zdf&client_secret=h97K0YuF0KCnx4kW&state=fekrnNmYDOlPHyrtzyJRYEHdnnLPBghLcdwKxSODAMEVmdEjkm&redirect_uri=http%3A%2F%2Flocalhost.com
+      string: grant_type=authorization_code&code=AQRRBkP22yUFufYkxyFDgxg59jTJTMy4jCsp_2tz5W6CcEZ11gRysjPxbelKAXcXrcfDXKAyDZCctqzWsn-sYDB-galvVu192PkDGXI-lQh2-xq5AbM&client_id=f7cq90292zdf&client_secret=h97K0YuF0KCnx4kW&state=QrAOpIcMEEkqkFhPNPBpxBjoalApSrTdroLGGDWaCkqrdGKziH&redirect_uri=http%3A%2F%2Flocalhost.com
     headers:
       User-Agent:
       - Faraday v0.8.8
@@ -22,7 +22,7 @@ http_interactions:
       - CP="CAO DSP COR CUR ADMi DEVi TAIi PSAi PSDi IVAi IVDi CONi OUR DELi SAMi
         UNRi PUBi OTRi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT POL PRE"
       x-li-uuid:
-      - aE8h3u2c4XGMPx8wUic1uw==
+      - R9Fiq98P6oKapbEme8kcTw==
       vary:
       - Accept-Encoding
       content-type:
@@ -30,25 +30,25 @@ http_interactions:
       content-language:
       - en-US
       content-length:
-      - '220'
+      - '219'
       date:
-      - Sun, 13 Oct 2013 18:19:42 GMT
+      - Sun, 13 Oct 2013 19:58:00 GMT
       x-li-fabric:
       - PROD-ELA4
       access-control-allow-origin:
       - https://www.linkedin.com
       set-cookie:
-      - _lipt=deleteMe; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/, leo_auth_token="GST:8gPEcErPHirsLszRTwGkHsCSm3M7ft8j6jug6Y51J5M3LILjbMp4UU:1381688382:787e1971c2859431eb8f59eb58262462f3dcd578";
-        Version=1; Max-Age=1799; Expires=Sun, 13-Oct-2013 18:49:41 GMT; Path=/, sl="delete
+      - _lipt=deleteMe; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/, leo_auth_token="GST:8zAnyikKuhU_QXD8caLFg5R6Shfg4nvQwTAFyUkoWhfoCnP0vYCB2T:1381694281:027f4c0540de42a5015b97b34d6fdb35a3f6cde1";
+        Version=1; Max-Age=1799; Expires=Sun, 13-Oct-2013 20:28:00 GMT; Path=/, sl="delete
         me"; Version=1; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/,
         sl="delete me"; Version=1; Domain=.www.linkedin.com; Max-Age=0; Expires=Thu,
         01-Jan-1970 00:00:10 GMT; Path=/, s_leo_auth_token="delete me"; Version=1;
-        Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/, JSESSIONID="ajax:4241175456742524062";
+        Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/, JSESSIONID="ajax:7115608698667287816";
         Version=1; Path=/, visit="v=1&G"; Version=1; Max-Age=63072000; Expires=Tue,
-        13-Oct-2015 18:19:42 GMT; Path=/, lang="v=2&lang=en-us"; Version=1; Domain=linkedin.com;
-        Path=/, bcookie="v=2&8a30a3c7-8392-404f-8262-8139727cde11"; domain=.linkedin.com;
-        Path=/; Expires=Wed, 14-Oct-2015 05:57:14 GMT, bscookie="v=1&2013101318194258f227ac-6770-4b8d-81cb-92ec9c4d9fc7AQHiiQ5pbgioA7-123KVjtJ5qmZtVmky";
-        domain=.www.linkedin.com; Path=/; Secure; Expires=Wed, 14-Oct-2015 05:57:14
+        13-Oct-2015 19:58:01 GMT; Path=/, lang="v=2&lang=en-us"; Version=1; Domain=linkedin.com;
+        Path=/, bcookie="v=2&2ae0fd35-d407-46fe-8106-8f393d734de0"; domain=.linkedin.com;
+        Path=/; Expires=Wed, 14-Oct-2015 07:35:33 GMT, bscookie="v=1&20131013195801a1d173a8-de6e-4c88-8566-07e358e74e94AQGbJ5HTwrq6Oj8iv3TepmjPiLZ_KHDn";
+        domain=.www.linkedin.com; Path=/; Secure; Expires=Wed, 14-Oct-2015 07:35:33
         GMT; HttpOnly, X-LI-IDC=C1
       pragma:
       - no-cache
@@ -57,14 +57,14 @@ http_interactions:
       cache-control:
       - no-cache, no-store
       age:
-      - '0'
+      - '1'
       connection:
       - keep-alive
       x-li-pop:
       - PROD-ELA4
     body:
       encoding: UTF-8
-      string: '{"expires_in":5183999,"access_token":"AQXjfyOrBFhWJIkcBXi1ubzLZQhQc2CVGoXdgo2I6wirbJejAwhXDIYu-3gnADeNVeRey_m9jvohTG9rAjFhzakL7UkTbXIBC_GlwTHhhUWHTXzWdRgtVu-al9BQ3bDGCkbsaiCJySOkUn5YFPJE-7eFkA5MwZi_4PJZoep0D80yI8svMkk"}'
+      string: '{"expires_in":5183999,"access_token":"AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8"}'
     http_version: 
-  recorded_at: Sun, 13 Oct 2013 18:19:50 GMT
+  recorded_at: Sun, 13 Oct 2013 19:58:08 GMT
 recorded_with: VCR 2.5.0
