@@ -4,7 +4,7 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
   subject { LinkedIn::Client.new }
 
   describe '#profile' do
-    it 'should be able to fetch the account profile of the current user' do
+    it 'should be able to fetch the profile of the current user' do
       profile = subject.profile
 
       profile['firstName'].should eq 'Josh'
@@ -18,9 +18,8 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
       profile['lastName'].should eq 'B.'
     end
 
-    it "should be able to view connections" do
-      pending "https://api.linkedin.com/v1/people/~/connections"
-      subject.connections
+    it "should be able to fetch the connections of the current user" do
+      subject.connections['values'].should have(2).things
     end
 
     it "should be able to view network_updates" do
