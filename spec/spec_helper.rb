@@ -4,8 +4,8 @@ require 'rspec'
 require 'vcr'
 require 'pry'
 require 'byebug'
-
 require 'simplecov'
+
 SimpleCov.start do
   add_group 'API', 'lib/evertrue/api'
 end
@@ -24,10 +24,4 @@ end
 LinkedIn.load('spec/test_app.yml')
 LinkedIn::Client.configure do |config|
   config.access_token = 'AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8'
-end
-
-def stub_client_adapter(client)
-  adapter = Faraday::Adapter::Test::Stubs.new
-  client.connection.connection.adapter :test, adapter
-  adapter
 end
