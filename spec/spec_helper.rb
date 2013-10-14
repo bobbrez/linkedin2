@@ -7,7 +7,7 @@ require 'byebug'
 
 require 'simplecov'
 SimpleCov.start do
-  add_group "API", "lib/evertrue/api"
+  add_group 'API', 'lib/evertrue/api'
 end
 
 VCR.configure do |c|
