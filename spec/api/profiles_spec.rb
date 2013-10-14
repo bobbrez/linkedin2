@@ -4,14 +4,14 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
   subject { LinkedIn::Client.new }
 
   describe '#profile' do
-    it 'should be able to fetch the profile of the current user' do
+    it 'fetches the profile of the current user' do
       profile = subject.profile
 
       profile['firstName'].should eq 'Josh'
       profile['lastName'].should eq 'Testjordan'
     end
 
-    it "should be able to fetch publicly available profiles" do
+    it 'fetches publicly available profiles' do
       profile = subject.profile(selector: 'id=Fy5e5a4mqr')
       
       profile['firstName'].should eq 'Sir Richard'
@@ -20,7 +20,7 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
   end
 
   describe '#connections' do
-    it "should be able to fetch the connections of the current user" do
+    it 'fetches the connections of the current user' do
       subject.connections['values'].should have(2).things
     end
   end

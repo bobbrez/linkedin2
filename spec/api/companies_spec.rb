@@ -1,14 +1,15 @@
 require 'spec_helper'
 
-describe LinkedIn::API::Companies do
-  subject { LinkedIn::Client }
+describe LinkedIn::API::Companies, vcr: { cassette_name: 'companies' }  do
+  subject { LinkedIn::Client.new }
 
   describe '#company' do
-    it "should be able to view a company profile" do
-      pending "https://api.linkedin.com/v1/companies/id=1586"
-      subject.company(:id => 1586)
+    it 'fetches a company profile by id' do
+      subject.company(selector: 'id=1586')['name'].should eq 'Amazon'
     end
+  end
 
+  context 'todo' do
     it "should be able to view a company by universal name" do
       pending "https://api.linkedin.com/v1/companies/universal-name=acme"
       subject.company(:name => 'acme')

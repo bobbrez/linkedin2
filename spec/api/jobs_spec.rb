@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe LinkedIn::API::Jobs do
   describe '#jobs' do
+  end
+
+  context 'todo' do
     it "should be able to view a job listing" do
       pending "https://api.linkedin.com/v1/jobs/id=1586"
       subject.job(:id => 1586)

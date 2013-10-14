@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe LinkedIn::API::Groups do
   describe '#jobs' do
+  end
+
+  context 'todo' do
     it "should be able to list group memberships for a profile" do
       pending "https://api.linkedin.com/v1/people/~/group-memberships"
       subject.group_memberships
