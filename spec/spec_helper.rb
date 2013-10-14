@@ -5,6 +5,11 @@ require 'vcr'
 require 'pry'
 require 'byebug'
 
+require 'simplecov'
+SimpleCov.start do
+  add_group "API", "lib/evertrue/api"
+end
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/requests'
   c.hook_into :faraday
