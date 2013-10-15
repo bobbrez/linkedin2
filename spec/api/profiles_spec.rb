@@ -98,4 +98,22 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
       expect{ subject.search(:first_name => "Javan") }.to raise_error(LinkedIn::Forbidden)
     end
   end
+
+  describe '#connections' do
+    it 'finds all connections for the current user' do
+      linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
+      connections = subject.connections
+
+      connections['values'].should_not be_nil
+      connections['values'].first.keys.should include(*linkedin_keys)
+    end
+
+    it 'finds all connections for a user' do
+      linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
+      connections = subject.connections
+
+      connections['values'].should_not be_nil
+      connections['values'].first.keys.should include(*linkedin_keys)
+    end
+  end
 end
