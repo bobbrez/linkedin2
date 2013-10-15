@@ -41,7 +41,7 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
 
     it 'finds all connections for a user' do
       linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
-      connections = subject.connections
+      connections = subject.connections id: 'cDmdM9cb0H'
 
       connections['values'].should_not be_nil
       connections['values'].first.keys.should include(*linkedin_keys)
