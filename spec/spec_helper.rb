@@ -4,6 +4,11 @@ require 'rspec'
 require 'vcr'
 require 'pry'
 require 'byebug'
+require 'simplecov'
+
+SimpleCov.start do
+  add_group 'API', 'lib/linkedin/api'
+end
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/fixtures/requests'
