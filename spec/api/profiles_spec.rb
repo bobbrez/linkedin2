@@ -11,9 +11,16 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
       profile['lastName'].should eq 'Testjordan'
     end
 
-    it 'fetches publicly available profiles' do
-      profile = subject.profile(selector: 'id=Fy5e5a4mqr')
-      
+    it 'fetches publicly available profiles with a string selector' do
+      profile = subject.profile('id=Fy5e5a4mqr')
+
+      profile['firstName'].should eq 'Sir Richard'
+      profile['lastName'].should eq 'B.'
+    end
+
+    it 'fetches publicly available profiles with a hash selector' do
+      profile = subject.profile(id: 'Fy5e5a4mqr')
+
       profile['firstName'].should eq 'Sir Richard'
       profile['lastName'].should eq 'B.'
     end
@@ -21,7 +28,23 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
 
   describe '#connections' do
     it 'fetches the connections of the current user' do
-      subject.connections['values'].should have(2).things
+      linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
+
+      connections = subject.connections
+
+      connections['values'].should_not be_nil
+      connections['values'].should have(2).things
+      connections['values'].each do |connection|
+        connection.keys.should include(*linkedin_keys)
+      end
+    end
+
+    it 'finds all connections for a user' do
+      linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
+      connections = subject.connections id: 'cDmdM9cb0H'
+
+      connections['values'].should_not be_nil
+      connections['values'].first.keys.should include(*linkedin_keys)
     end
   end
 
@@ -96,24 +119,6 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
     it "should raise AccessDeniedError when LinkedIn returns 403 status code" do
       pending "https://api.linkedin.com/v1/people-search?first-name=Javan"
       expect{ subject.search(:first_name => "Javan") }.to raise_error(LinkedIn::Forbidden)
-    end
-  end
-
-  describe '#connections' do
-    it 'finds all connections for the current user' do
-      linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
-      connections = subject.connections
-
-      connections['values'].should_not be_nil
-      connections['values'].first.keys.should include(*linkedin_keys)
-    end
-
-    it 'finds all connections for a user' do
-      linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
-      connections = subject.connections
-
-      connections['values'].should_not be_nil
-      connections['values'].first.keys.should include(*linkedin_keys)
     end
   end
 end
