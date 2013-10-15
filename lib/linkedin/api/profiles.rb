@@ -39,6 +39,7 @@ module LinkedIn
         get "v1/people/#{selector}#{fields_str}"
       end
 
+      # Essentally a convenience call to #profile that sets the :path option to :connections.
       def connections(options={})
         profile options.merge(path: :connections)
       end
