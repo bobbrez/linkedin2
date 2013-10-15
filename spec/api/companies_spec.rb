@@ -5,21 +5,29 @@ describe LinkedIn::API::Companies, vcr: { cassette_name: 'companies' }  do
 
   describe '#company' do
     it 'fetches a company profile by id' do
-      subject.company(selector: 'id=1586')['name'].should eq 'Amazon'
+      subject.company(selector: 162479)['name'].should eq 'Apple'
+    end
+
+    it 'fetches a company profile by universal name' do
+      subject.company(selector: 'universal-name=linkedin')['name'].should eq 'LinkedIn'
+    end
+
+    it 'fetches a company profile by e-mail domain' do
+      companies = subject.company(filter: 'email-domain=apple.com')
+      companies['values'].first['name'].should eq 'Apple'
+    end
+
+    it 'fetches companies in bulk using their respective selectors' do
+      companies = subject.company(selector: [162479, 'universal-name=linkedin'])
+      companies['values'].collect { |c| c['name'] }.should eq ['Apple', 'LinkedIn']
+    end
+
+    it 'fetches companies that the current user is an adminstrator of' do
+      subject.company(filter: 'is-company-admin=true')['_total'].should eq 0
     end
   end
 
   context 'todo' do
-    it "should be able to view a company by universal name" do
-      pending "https://api.linkedin.com/v1/companies/universal-name=acme"
-      subject.company(:name => 'acme')
-    end
-
-    it "should be able to view a company by e-mail domain" do
-      pending "https://api.linkedin.com/v1/companies?email-domain=acme.com"
-      subject.company(:domain => 'acme.com')
-    end
-
     it "should load correct company data" do
       pending
       data = subject.company(:id => 1586, :fields => %w{ id name industry locations:(address:(city state country-code) is-headquarters) employee-count-range })
