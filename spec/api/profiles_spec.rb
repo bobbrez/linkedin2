@@ -3,8 +3,6 @@ require 'spec_helper'
 describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
   subject { LinkedIn::Client.new }
 
-  let(:client) { LinkedIn::Client.new }
-
   describe '#profile' do
     it 'fetches the profile of the current user' do
       profile = subject.profile
@@ -104,18 +102,16 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
   describe '#connections' do
     it 'finds all connections for the current user' do
       linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
-      connections = client.connections
+      connections = subject.connections
 
-      connections.respond_to?(:each).should be_true
       connections['values'].should_not be_nil
       connections['values'].first.keys.should include(*linkedin_keys)
     end
 
     it 'finds all connections for a user' do
       linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
-      connections = client.connections
+      connections = subject.connections
 
-      connections.respond_to?(:each).should be_true
       connections['values'].should_not be_nil
       connections['values'].first.keys.should include(*linkedin_keys)
     end
