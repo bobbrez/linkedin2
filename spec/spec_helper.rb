@@ -1,7 +1,6 @@
 require 'rspec'
 require 'vcr'
 require 'pry'
-require 'byebug'
 require 'simplecov'
 
 SimpleCov.start do
