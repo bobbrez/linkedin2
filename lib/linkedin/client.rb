@@ -5,6 +5,8 @@ module LinkedIn
     include Configuration
     include API
 
+    HTTP_METHODS = [:get, :post, :put, :patch, :delete, :headers].freeze
+
     attr_reader :access_token
 
     def_delegators :@access_token, :expires?, :expired?, :request
@@ -43,7 +45,7 @@ module LinkedIn
     end
 
     def method_missing(method, *args, &body)
-      return simple_request(method, args[0], (args[1] || {}), &body) if %i(get post put patch delete headers).include? method
+      return simple_request(method, args[0], (args[1] || {}), &body) if HTTP_METHODS.include? method
       super
     end
 
