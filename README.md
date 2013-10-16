@@ -1,4 +1,5 @@
 # LinkedIn 2
+[![Build Status](https://travis-ci.org/bobbrez/linkedin2.png?branch=master)](https://travis-ci.org/bobbrez/linkedin2)
 
 A modernized LinkedIn Ruby client.
 
