@@ -13,7 +13,7 @@ module LinkedIn
 
     def initialize(options={}, &block)
       configure options, &block
-      self.access_token ||= self.config[:access_token].to_s
+      self.access_token ||= self.config.access_token.to_s
     end
 
     def connection 
@@ -87,7 +87,7 @@ module LinkedIn
 
     def url_for(option_key)
       host = config.auth_host
-      path = config["#{option_key}_path".to_sym]
+      path = config.send("#{option_key}_path")
       "#{host}#{path}"
     end
   end
