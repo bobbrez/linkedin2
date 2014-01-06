@@ -22,7 +22,7 @@ module LinkedIn
 
     module BaseConfiguration
       def configure(config={}, &block)
-        self.config.marshal_load self.config.to_h.merge(config)
+        self.config.marshal_load self.config.marshal_dump.merge(config)
 
         yield self.config if block_given?
 
@@ -35,7 +35,7 @@ module LinkedIn
       end
 
       def defaults(*keys)
-        config.to_h.slice *keys
+        config.marshal_dump.slice *keys
       end
     end
 
