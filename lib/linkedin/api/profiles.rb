@@ -18,6 +18,10 @@ module LinkedIn
 
         profile options.slice(:selector).merge(selector_option)
       end
+
+      def search(options={})
+       get "v1/people-search?#{options.to_param}"
+      end
     end
   end
 end
