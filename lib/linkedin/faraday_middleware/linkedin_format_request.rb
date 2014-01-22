@@ -19,7 +19,7 @@ module LinkedIn
       end
 
       def set_request_format!(url)
-        ar = URI.decode_www_form(url.query || []) << ['format', @request_format]
+        ar = URI.decode_www_form(url.query || '') << ['format', @request_format]
         url.query = URI.encode_www_form(ar)
       end
     end
