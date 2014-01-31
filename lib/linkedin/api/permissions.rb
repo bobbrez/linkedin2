@@ -14,7 +14,6 @@ module LinkedIn
 
       RELATION = { 'relation-to-viewer' => [ 'num-related-connections', 'related-connections' => PROFILE_BASE ] }
 
-
       MEMBER_RESOURCES = { 'member-url-resources' => [ 'url', 'name' ] }
       FULL_BASE = [ 'last-modified-timestamp', 'proposal-comments', 'associations', 'interests', 'publications',
                     'patents', 'languages', 'skills', 'certifications', 'educations', 'courses', 'volunteer',
@@ -22,13 +21,19 @@ module LinkedIn
                     'mfeed-rss-url', 'following', 'job-bookmarks', 'suggestions', 'date-of-birth',
                     'member-url-resources', 'related-profile-views', 'honors-awards' ]
 
+
+      %i(company location positions profile_base relation member_resources full_base).each do |field|
+        private_constant field.upcase
+      end
+
       R_BASICPROFILE = PROFILE_BASE + [ RELATION ]
-      R_EMAIL = [ 'email-address' ]
+      R_EMAILADDRESS = [ 'email-address' ]
       R_FULLPROFILE = FULL_BASE + [ MEMBER_RESOURCES ]
       R_CONTACTINFO = [ 'phone-numbers', 'bound-account-types', 'im-accounts', 'main-address', 'twitter-accounts', 'primary-twitter-account']
       R_NETWORK = [ 'connections' ]
       RW_GROUPS = [ 'group-memberships' ]
       RW_NUS = [ 'network' ]
+      W_MESSAGES = []
 
       def self.render_permissions (*fields)
         fields = fields.first if fields.size == 1

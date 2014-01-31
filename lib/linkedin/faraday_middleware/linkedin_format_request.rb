@@ -1,11 +1,10 @@
 module LinkedIn
   module FaradayMiddleware
     class LinkedinFormatRequest < Faraday::Middleware
-      def initialize(app=nil, options={})
+      def initialize(app = nil, format = :json)
         super app
 
-        @options = options
-        @request_format = options[:request_format]
+        @format = format
       end
 
       def call(env)
@@ -19,7 +18,7 @@ module LinkedIn
       end
 
       def set_request_format!(url)
-        ar = URI.decode_www_form(url.query || '') << ['format', @request_format]
+        ar = URI.decode_www_form(url.query || '') << ['format', @format]
         url.query = URI.encode_www_form(ar)
       end
     end

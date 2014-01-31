@@ -34,8 +34,8 @@ module LinkedIn
         configure config
       end
 
-      def defaults(*keys)
-        config.marshal_dump.slice *keys
+      def config(*keys)
+        config.marshal_dump.slice(*keys)
       end
     end
 

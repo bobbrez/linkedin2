@@ -3,7 +3,10 @@ module LinkedIn
     extend Forwardable
 
     include Configuration
-    include API
+    include LinkedIn::API::Authentication
+    include LinkedIn::API::Profiles
+    include LinkedIn::API::NetworkUpdates
+    include LinkedIn::API::Companies
 
     HTTP_METHODS = [:get, :post, :put, :patch, :delete, :headers].freeze
 
@@ -16,12 +19,17 @@ module LinkedIn
       self.access_token ||= self.config.access_token.to_s
     end
 
-    def connection 
-      @connection ||= OAuth2::Client.new(config.key, config.secret, oauth2_options) do |faraday|
+    def auth_code
+      connection.auth_code
+    end
+
+    def connection
+      @connection ||= OAuth2::Client.new config.key, config.secret, oauth2_options do |faraday|
         faraday.request :url_encoded
         faraday.request :json
-        faraday.request :linkedin_format, defaults(:request_format)
+        faraday.request :linkedin_format, config.request_format
 
+        faraday.response :mashify
         faraday.response :linkedin_errors
         faraday.response :logger, config.logger
         faraday.response :json, content_type: /\bjson$/
@@ -39,9 +47,11 @@ module LinkedIn
       @access_token = token
     end
 
-    def access_token_request(method, path, opts={}, &block)
-      response = access_token.send method, path, opts, &block
-      response.body
+    def profile_fields
+      scopes = config.scope unless config.scope.respond_to?(:values)
+      scopes ||= config.scope
+
+      scopes.reduce([]) { |fields, scope| fields + LinkedIn.send(scope) }
     end
 
     def method_missing(method, *args, &body)
@@ -51,10 +61,6 @@ module LinkedIn
 
     def self.default_config
       {
-        authorize_path: '/uas/oauth2/authorization',
-        access_token_path: '/uas/oauth2/accessToken',
-        api_host: 'https://api.linkedin.com',
-        auth_host: 'https://www.linkedin.com',
         request_format: :json,
 
         key: nil,
@@ -80,15 +86,9 @@ module LinkedIn
     end
 
     def oauth2_options
-      { site: config.api_host,
-        authorize_url: url_for(:authorize),
-        token_url: url_for(:access_token) }
-    end
-
-    def url_for(option_key)
-      host = config.auth_host
-      path = config.send("#{option_key}_path")
-      "#{host}#{path}"
+      { site:          'https://api.linkedin.com',
+        authorize_url: 'https://www.linkedin.com/uas/oauth2/authorization',
+        token_url:     'https://www.linkedin.com/uas/oauth2/accessToken' }
     end
   end
 end

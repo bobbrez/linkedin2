@@ -17,43 +17,26 @@ require 'linkedin/profile'
 require 'linkedin/company'
 require 'linkedin/industry'
 require 'linkedin/faraday_middleware'
-require 'linkedin/api'
+
+require 'linkedin/api/authentication'
+require 'linkedin/api/profiles'
+require 'linkedin/api/network_updates'
+require 'linkedin/api/companies'
+require 'linkedin/api/groups'
+require 'linkedin/api/industries'
+require 'linkedin/api/jobs'
+require 'linkedin/api/permissions'
+
 require 'linkedin/client'
 
 module LinkedIn
-  def new(options={}, &block)
+  def self.new(options = {}, &block)
     Client.new options, &block
   end
 
-  def self.method_missing(method, *args, &block)
-    Client.send(method, *args, &block) if Client.respond_to?(method)
-  end
-
-  def self.r_basicprofile
-    @@r_basicprofile ||= API::Permissions::R_BASICPROFILE
-  end
-
-  def self.r_emailaddress
-    @@r_emailaddress ||= API::Permissions::R_EMAIL
-  end
-
-  def self.r_fullprofile
-    @@r_fullprofile ||= API::Permissions::R_FULLPROFILE
-  end
-
-  def self.r_contactinfo
-    @@r_contactinfo ||= API::Permissions::R_CONTACTINFO
-  end
-
-  def self.r_network
-    @@r_network ||= API::Permissions::R_NETWORK
-  end
-
-  def self.rw_groups
-    @@rw_groups ||= API::Permissions::RW_GROUPS
-  end
-
-  def self.rw_nus
-    @@rw_nus ||= API::Permissions::RW_NUS
+  %i(r_basicprofile r_emailaddress r_fullprofile r_contactinfo r_network rw_groups rw_nus w_messages).each do |field|
+    define_singleton_method field do
+        API::Permissions.const_get field.to_s.upcase
+    end
   end
 end
