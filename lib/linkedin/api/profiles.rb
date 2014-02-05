@@ -42,6 +42,20 @@ module LinkedIn
           req.body = connection_request.to_json
         end
       end
+
+      def message(subject, message, recipients)
+        recipients = [recipients].flatten
+
+        recipients = recipients.map { |recipient| { person: { _path: "/people/#{recipient.to_param}" } } }
+
+        message = { recipients: { values: recipients }, subject: subject, body: message }
+
+        post 'v1/people/~/mailbox' do |req|
+          req.headers['Content-Type'] = 'application/json'
+          req.headers['x-li-format'] = 'json'
+          req.body = message.to_json
+        end
+      end
     end
   end
 end
