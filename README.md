@@ -25,7 +25,8 @@ Or install it yourself as:
 Configure an instance directly with a hash:
 
 ```ruby
-client = LinkedIn::Client.new key: <your-key>, secret: <your-secret>, redirect_uri: <your-callback>
+client = LinkedIn::Client.new key: <your-key>, secret: <your-secret>,
+redirect_uri: <your-callback>, scope: %i(r_basicprofile r_network)
 ```
 
 Or configure an instance directly with the configure method:
