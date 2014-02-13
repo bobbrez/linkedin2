@@ -5,6 +5,7 @@ module LinkedIn
 
       def authorize_url(params = {})
         params.reverse_merge! config.to_h.slice :scope, :state, :redirect_uri
+        params[:scope] = serialize_scope params[:scope]
         auth_code.authorize_url params
       end
 
@@ -15,6 +16,12 @@ module LinkedIn
         opts = { mode: :query, param_name: 'oauth2_access_token' }
 
         self.access_token = auth_code.get_token authorization_code, params, opts
+      end
+
+      private
+
+      def serialize_scope(scope)
+        Array[scope].flatten.join ' '
       end
     end
   end
