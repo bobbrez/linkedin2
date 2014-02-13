@@ -21,6 +21,10 @@ module LinkedIn
         INDUSTRIES.detect { |indust| indust[:description].to_s.downcase == description.to_s.downcase }
       end
 
+      def self.find_group_names(*groups)
+        Array[groups].flatten.map { |group| GROUPS[group.to_sym] }
+      end
+
       INDUSTRIES = [ { code: 1,   group: [:gov, :tech],         description: 'Defense & Space' },
                      { code: 3,   group: [:tech],               description: 'Computer Hardware' },
                      { code: 4,   group: [:tech],               description: 'Computer Software' },
@@ -168,6 +172,24 @@ module LinkedIn
                      { code: 146, group: [:good, :man],         description: 'Packaging and Containers' },
                      { code: 147, group: [:cons, :man],         description: 'Industrial Automation' },
                      { code: 148, group: [:gov],                description: 'Government Relations' } ]
+
+      GROUPS = { agr:  'Agriculture',
+                 art:  'Art & Design',
+                 cons: 'Real Estate & Construction',
+                 corp: 'Business & Operations',
+                 edu:  'Education',
+                 fin:  'Financial Services',
+                 good: 'Consumer Goods',
+                 gov:  'Government',
+                 hlth: 'Health Care',
+                 leg:  'Legal',
+                 man:  'Basic Industries',
+                 med:  'Media & Entertainment',
+                 org:  'Charitable & Civic Organizations',
+                 rec:  'Leisure & Recreation',
+                 serv: 'Business Services',
+                 tech: 'Technology',
+                 tran: 'Transportation & Logistics' }
     end
   end
 end
