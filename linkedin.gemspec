@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'oauth2', '~> 0.9'
   spec.add_dependency 'hashie', '~> 2.0.5'
-  spec.add_dependency 'activesupport', '~> 3.2'
+  spec.add_dependency 'activesupport', '>= 3.2'
   spec.add_dependency 'faraday_middleware', '~> 0.9'
   spec.add_dependency 'faraday', '~> 0.8.9'
 
