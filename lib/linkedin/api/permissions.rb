@@ -6,7 +6,7 @@ module LinkedIn
       POSITIONS = { 'positions' => [ 'id', 'title', 'summary', 'start-date', 'end-date', 'is-current', COMPANY ] }
       PROFILE_REQ = { 'api-standard-profile-request' => ['url', 'headers'] }
 
-      PROFILE_BASE = [ 'id', 'first-name', 'last-name','maiden-name', 'formatted-name', 'phonetic-first-name', 
+      PROFILE_BASE = [ 'id', 'first-name', 'last-name','maiden-name', 'formatted-name', 'phonetic-first-name',
                        'phonetic-last-name', 'formatted-phonetic-name', 'headline', 'industry', 'distance',
                        'current-share', 'num-connections', 'num-connections-capped', 'summary', 'specialties',
                        'picture-url', 'site-standard-profile-request', 'public-profile-url',
@@ -21,8 +21,7 @@ module LinkedIn
                     'mfeed-rss-url', 'following', 'job-bookmarks', 'suggestions', 'date-of-birth',
                     'member-url-resources', 'related-profile-views', 'honors-awards' ]
 
-
-      %i(company location positions profile_base relation member_resources full_base).each do |field|
+      [:company, :location, :positions, :profile_base, :relation, :member_resources, :full_base].each do |field|
         private_constant field.upcase
       end
 
