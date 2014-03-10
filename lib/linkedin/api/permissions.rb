@@ -21,11 +21,6 @@ module LinkedIn
                     'mfeed-rss-url', 'following', 'job-bookmarks', 'suggestions', 'date-of-birth',
                     'member-url-resources', 'related-profile-views', 'honors-awards' ]
 
-
-      %i(company location positions profile_base relation member_resources full_base).each do |field|
-        private_constant field.upcase
-      end
-
       R_BASICPROFILE = PROFILE_BASE + [ RELATION ]
       R_EMAILADDRESS = [ 'email-address' ]
       R_FULLPROFILE = FULL_BASE + [ MEMBER_RESOURCES ]
