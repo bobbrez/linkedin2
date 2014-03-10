@@ -17,6 +17,14 @@ module LinkedIn
         profile [selector, 'connections'].join '/'
       end
 
+      def shared_connections(selector, offset = 0, limit = 10, token = nil)
+        query = "#{selector.to_param}:(#{Permissions.render_permissions Permissions::RELATION})"
+        get "v1/people/#{query}" do |req|
+          req.params.merge! start: offset, count: limit
+          req.headers.merge! 'x-li-auth-token' => token unless token.blank?
+        end
+      end
+
       def search(options = {})
        get "v1/people-search?#{options.to_param}"
       end
