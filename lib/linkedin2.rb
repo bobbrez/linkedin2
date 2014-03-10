@@ -34,7 +34,7 @@ module LinkedIn
     Client.new options, &block
   end
 
-  %i(r_basicprofile r_emailaddress r_fullprofile r_contactinfo r_network rw_groups rw_nus w_messages).each do |field|
+  [:r_basicprofile, :r_emailaddress, :r_fullprofile, :r_contactinfo, :r_network, :rw_groups, :rw_nus, :w_messages].each do |field|
     define_singleton_method field do
         API::Permissions.const_get field.to_s.upcase
     end

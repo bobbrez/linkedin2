@@ -8,7 +8,7 @@ A modernized LinkedIn Ruby client.
 
 Add this line to your application's Gemfile:
 
-    gem 'linkedin'
+    gem 'linkedin2'
 
 And then execute:
 
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install linkedin
+    $ gem install linkedin2
 
 ## Usage
 
