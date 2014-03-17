@@ -19,7 +19,7 @@ module LinkedIn
                     'patents', 'languages', 'skills', 'certifications', 'educations', 'courses', 'volunteer',
                     'three-current-positions', 'three-past-positions', 'num-recommenders', 'recommendations-received',
                     'mfeed-rss-url', 'following', 'job-bookmarks', 'suggestions', 'date-of-birth',
-                    'member-url-resources', 'related-profile-views', 'honors-awards' ]
+                    'related-profile-views', 'honors-awards' ]
 
       R_BASICPROFILE = PROFILE_BASE + [ RELATION ]
       R_EMAILADDRESS = [ 'email-address' ]
