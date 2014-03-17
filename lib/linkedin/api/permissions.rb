@@ -23,7 +23,7 @@ module LinkedIn
 
       R_BASICPROFILE = PROFILE_BASE + [ RELATION ]
       R_EMAILADDRESS = [ 'email-address' ]
-      R_FULLPROFILE = FULL_BASE + [ MEMBER_RESOURCES ]
+      R_FULLPROFILE = R_BASICPROFILE + FULL_BASE + [ MEMBER_RESOURCES ]
       R_CONTACTINFO = [ 'phone-numbers', 'bound-account-types', 'im-accounts', 'main-address', 'twitter-accounts', 'primary-twitter-account']
       R_NETWORK = [ 'connections' ]
       RW_GROUPS = [ 'group-memberships' ]
