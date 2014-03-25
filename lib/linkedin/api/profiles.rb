@@ -25,8 +25,10 @@ module LinkedIn
         end
       end
 
-      def search(options = {})
-       get "v1/people-search?#{options.to_param}"
+      def search(options = {}, token = nil)
+        get "v1/people-search?#{options.to_param}" do |req|
+          req.headers.merge! 'x-li-auth-token' => token unless token.blank?
+        end
       end
 
       def connect_with(selector, subject, message, type = :friend, auth_name = nil, auth_value = nil)
