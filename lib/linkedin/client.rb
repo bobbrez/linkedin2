@@ -10,6 +10,7 @@ module LinkedIn
 
     HTTP_METHODS = [:get, :post, :put, :patch, :delete, :headers].freeze
 
+    attr_writer :profile_fields
     attr_reader :access_token
 
     def_delegators :@access_token, :expires?, :expired?, :request
@@ -48,10 +49,11 @@ module LinkedIn
     end
 
     def profile_fields
+      return @profile_fields if @profile_fields
       scopes = config.scope unless config.scope.respond_to?(:values)
       scopes ||= config.scope
 
-      scopes.reduce([]) { |fields, scope| fields + LinkedIn.send(scope) }
+      @profile_fields = scopes.reduce([]) { |fields, scope| fields + LinkedIn.send(scope) }
     end
 
     def method_missing(method, *args, &body)
