@@ -1,30 +1,6 @@
 module LinkedIn
   module API
     module Industries
-      def self.all
-        INDUSTRIES
-      end
-
-      def self.[](code)
-        find_by_code(code)
-      end
-
-      def self.find_by_code(code)
-        INDUSTRIES.detect { |indust| indust[:code] == code }
-      end
-
-      def self.find_by_group(*groups)
-        INDUSTRIES.reject { |indust| (groups & indust[:group]) != groups }
-      end
-
-      def self.find_by_description(description)
-        INDUSTRIES.detect { |indust| indust[:description].to_s.downcase == description.to_s.downcase }
-      end
-
-      def self.find_group_names(*groups)
-        Array[groups].flatten.map { |group| GROUPS[group.to_sym] }
-      end
-
       INDUSTRIES = [ { code: 1,   group: [:gov, :tech],         description: 'Defense & Space' },
                      { code: 3,   group: [:tech],               description: 'Computer Hardware' },
                      { code: 4,   group: [:tech],               description: 'Computer Software' },
@@ -123,7 +99,7 @@ module LinkedIn
                      { code: 97,  group: [:corp],               description: 'Market Research' },
                      { code: 98,  group: [:corp],               description: 'Public Relations and Communications' },
                      { code: 99,  group: [:art, :med],          description: 'Design' },
-                     { code: 100, group: [:org],                description: 'Non-Profit Organization Management' },
+                     { code: 100, group: [:org],                description: 'Nonprofit Organization Management' },
                      { code: 101, group: [:org],                description: 'Fund-Raising' },
                      { code: 102, group: [:corp, :org],         description: 'Program Development' },
                      { code: 103, group: [:art, :med, :rec],    description: 'Writing and Editing' },
