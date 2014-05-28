@@ -3,8 +3,9 @@ module LinkedIn
     require 'linkedin/faraday_middleware/linkedin_format_request'
     require 'linkedin/faraday_middleware/linkedin_error_response'
 
-    Faraday.register_middleware :request, linkedin_format: lambda { LinkedinFormatRequest }
-
-    Faraday.register_middleware :response, linkedin_errors: lambda { LinkedinErrorResponse }
+    if Faraday::Middleware.respond_to? :register_middleware
+      Faraday::Request.register_middleware linkedin_format: lambda { LinkedinFormatRequest }
+      Faraday::Response.register_middleware linkedin_errors: lambda { LinkedinErrorResponse }
+    end
   end
 end
