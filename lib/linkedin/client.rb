@@ -69,7 +69,7 @@ module LinkedIn
         secret: nil,
         access_token: nil,
 
-        scope: 'r_basicprofile',
+        scope: ['r_basicprofile'],
         state: Utils.generate_random_state,
         redirect_uri: 'http://localhost',
 
