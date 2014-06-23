@@ -13,12 +13,12 @@ module LinkedIn
         end
       end
 
-      def connections(selector = '~')
-        profile [selector, 'connections'].join '/'
+      def connections(selector = '~', fields = nil)
+        profile [selector, 'connections'].join('/'), fields
       end
 
-      def shared_connections(selector, offset = 0, limit = 10, token = nil)
-        query = "#{selector.to_param}:(#{Permissions.render_permissions Permissions::RELATION})"
+      def shared_connections(selector, fields = Permissions::RELATION, offset = 0, limit = 10, token = nil)
+        query = "#{selector.to_param}:(#{Permissions.render_permissions fields})"
         get "v1/people/#{query}" do |req|
           req.params.merge! start: offset, count: limit
           req.headers.merge! 'x-li-auth-token' => token unless token.blank?
