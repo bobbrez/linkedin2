@@ -1,16 +1,12 @@
 module LinkedIn
   module API
     module NetworkUpdates
-      def network_updates(options = {})
-        get ['v1/people/~/network/updates', options[:selector], options[:attached_object_type]].compact.join '/'
-      end
+      def network_updates(selector = '~', key: key, type: type, **opts)
+        path = ['network','updates']
+        path << { key: key }.to_param if key
+        path << type
 
-      def network_update_comments(options = {})
-        network_updates(options.merge attached_object_type: 'update-comments')
-      end
-
-      def network_update_likes(options = {})
-        network_updates(options.merge attached_object_type: 'likes')
+        execute 'people', opts.merge(selector: selector, path: path.compact.join('/'))
       end
     end
   end

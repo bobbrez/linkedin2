@@ -1,30 +1,25 @@
 describe LinkedIn::API::NetworkUpdates, vcr: { cassette_name: 'network_updates' } do
   subject { LinkedIn::Client.new }
 
-  describe '#network_updates' do
+  context '#network_updates' do
     it 'fetches network updates for the current user' do
       network_updates = subject.network_updates
-      binding.pry
       expect(network_updates['_total']).to eq 13
       expect(network_updates['values']).to have(10).things
     end
 
     it 'fetches network updates by key' do
-      network_updates = subject.network_updates(selector: 'key=PROF-18939563-5794095336964247552-*1')
+      network_updates = subject.network_updates(key: 'PROF-18939563-5794095336964247552-*1')
       network_updates['updatedFields']['values'].should have(1).thing
     end
-  end
 
-  describe '#network_update_comments' do
     it 'fetches comments for network updates' do
-      comments = subject.network_update_comments(selector: 'key=PROF-18939563-5794095336964247552-*1')
+      comments = subject.network_updates(key: 'PROF-18939563-5794095336964247552-*1', type: 'update-comments')
       comments['values'].first['comment'].should eq 'Whaaaat'
     end
-  end
-
-  describe '#network_update_likes' do
+    
     it 'fetches "likes" for network updates' do
-      likes = subject.network_update_likes(selector: 'key=PROF-18939563-5794095336964247552-*1')
+      likes = subject.network_updates(key: 'PROF-18939563-5794095336964247552-*1', type: 'likes')
       likes['values'].first['person']['id'].should eq 'cDmdM9cb0H'
     end
   end
