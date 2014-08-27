@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe LinkedIn::API::Jobs do
   describe '#jobs' do
   end
@@ -29,6 +27,7 @@ describe LinkedIn::API::Jobs do
 
     it "should raise AccessDeniedError when LinkedIn returns 403 status code" do
       pending
+      pass
     end
   end
 end

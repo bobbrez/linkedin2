@@ -1,27 +1,25 @@
-require 'spec_helper'
-
-describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
+describe LinkedIn::API::People, vcr: { cassette_name: 'people' } do
   subject { LinkedIn::Client.new }
 
-  describe '#profile' do
+  context '#profile' do
     it 'fetches the profile of the current user' do
       profile = subject.profile
 
-      profile['firstName'].should eq 'Josh'
-      profile['lastName'].should eq 'Testjordan'
+      expect(profile['firstName']).to eq 'Josh'
+      expect(profile['lastName']).to eq 'Testjordan'
     end
 
     it 'fetches publicly available profiles' do
-      profile = subject.profile(selector: 'id=Fy5e5a4mqr')
-      
-      profile['firstName'].should eq 'Sir Richard'
-      profile['lastName'].should eq 'B.'
+      profile = subject.profile('id=Fy5e5a4mqr')
+
+      expect(profile['firstName']).to eq 'Sir Richard'
+      expect(profile['lastName']).to eq 'B.'
     end
   end
 
-  describe '#connections' do
+  context '#connections' do
     it 'fetches the connections of the current user' do
-      subject.connections['values'].should have(2).things
+      expect(subject.connections['values']).to have(2).things
     end
   end
 
@@ -99,7 +97,7 @@ describe LinkedIn::API::Profiles, vcr: { cassette_name: 'profiles' } do
     end
   end
 
-  describe '#connections' do
+  context '#connections' do
     it 'finds all connections for the current user' do
       linkedin_keys = %w(id headline firstName lastName industry location pictureUrl siteStandardProfileRequest)
       connections = subject.connections

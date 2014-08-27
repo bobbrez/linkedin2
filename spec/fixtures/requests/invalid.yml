@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/people/~?oauth2_access_token=&format=json
+    uri: https://api.linkedin.com/v1/people/~
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
   response:
     status:
       code: 401
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -48,11 +48,11 @@ http_interactions:
           "status": 401,
           "timestamp": 1379777767455
         }
-    http_version: 
+    http_version:
   recorded_at: Sat, 21 Sep 2013 15:36:08 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/people/~?oauth2_access_token=AQXjfyOrBFhWJIkcBXi1ubzLZQhQc2CVGoXdgo2I6wirbJejAwhXDIYu-3gnADeNVeRey_m9jvohTG9rAjFhzakL7UkTbXIBC_GlwTHhhUWHTXzWdRgtVu-al9BQ3bDGCkbsaiCJySOkUn5YFPJE-7eFkA5MwZi_4PJZoep0D80yI8svMkk&format=json
+    uri: https://api.linkedin.com/v1/people/~?oauth2_access_token=AQXjfyOrBFhWJIkcBXi1ubzLZQhQc2CVGoXdgo2I6wirbJejAwhXDIYu-3gnADeNVeRey_m9jvohTG9rAjFhzakL7UkTbXIBC_GlwTHhhUWHTXzWdRgtVu-al9BQ3bDGCkbsaiCJySOkUn5YFPJE-7eFkA5MwZi_4PJZoep0D80yI8svMkk
     body:
       encoding: US-ASCII
       string: ''
@@ -62,9 +62,9 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
-      server:
+      Server:
       - Apache-Coyote/1.1
       x-li-request-id:
       - 0V741GCJOT
@@ -99,6 +99,6 @@ http_interactions:
           "lastName": "Testjordan",
           "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=292221312&authType=name&authToken=lTbb&trk=api*a3296321*s3370311*"}
         }
-    http_version: 
+    http_version:
   recorded_at: Sun, 13 Oct 2013 18:48:56 GMT
 recorded_with: VCR 2.5.0

@@ -1,64 +1,34 @@
 module LinkedIn
   class Client
-    extend Forwardable
-
     include Configuration
-    include LinkedIn::API::Authentication
-    include LinkedIn::API::Profiles
-    include LinkedIn::API::NetworkUpdates
-    include LinkedIn::API::Companies
+    include LinkedIn::API
 
-    HTTP_METHODS = [:get, :post, :put, :patch, :delete, :headers].freeze
+    attr_reader :headers, :params
 
-    attr_writer :profile_fields
-    attr_reader :access_token
-
-    def_delegators :@access_token, :expires?, :expired?, :request
-
-    def initialize(options={}, &block)
-      configure options, &block
-      self.access_token ||= self.config.access_token.to_s
+    def initialize(**config, &block)
+      configure config, &block
+      self.auth.access_token = self.configuration.access_token.to_s
+      @headers = { 'User-Agent' => "LinkedIn2 Gem v#{ LinkedIn::VERSION }" }
     end
 
-    def auth_code
-      connection.auth_code
+    def auth
+      @auth ||= Auth.new
     end
 
     def connection
-      @connection ||= OAuth2::Client.new config.key, config.secret, oauth2_options do |faraday|
-        faraday.request :url_encoded
-        faraday.request :json
-        faraday.request :linkedin_format, config.request_format
+      @connection ||= Faraday.new 'https://api.linkedin.com' do |conn|
+        conn.request :json
+        conn.request :url_encoded
+        conn.request :linkedin_auth, auth
+        conn.request :linkedin_format
 
-        faraday.response :mashify
-        faraday.response :linkedin_errors
-        faraday.response :logger, config.logger
-        faraday.response :json, content_type: /\bjson$/
+        conn.response :linkedin_errors
+        conn.response :mashify
+        conn.response :logger, configuration[:logger]
+        conn.response :json, content_type: /\bjson$/
 
-        faraday.adapter :net_http
+        conn.adapter Faraday.default_adapter
       end
-    end
-
-    def access_token=(token)
-      if token.kind_of? String
-        options = { access_token: token, mode: :query, param_name: 'oauth2_access_token' }
-        return @access_token = OAuth2::AccessToken.from_hash(connection, options)
-      end
-
-      @access_token = token
-    end
-
-    def profile_fields
-      return @profile_fields if @profile_fields
-      scopes = config.scope unless config.scope.respond_to?(:values)
-      scopes ||= config.scope
-
-      @profile_fields = scopes.reduce([]) { |fields, scope| fields + LinkedIn.send(scope) }
-    end
-
-    def method_missing(method, *args, &body)
-      return simple_request(method, args[0], (args[1] || {}), &body) if HTTP_METHODS.include? method
-      super
     end
 
     def self.default_config
@@ -79,12 +49,21 @@ module LinkedIn
 
     private
 
-    def simple_request(method, path, options={}, &body)
-      request(method, path, options, &body).body
+    def override(global, overrides)
+      global.to_h.merge overrides.to_h
     end
 
-    def auth_code
-      connection.auth_code unless connection.nil?
+    def execute(root, method: :get, selector: nil, fields: fields, **opts)
+      rendered_fields = Fields.render fields
+      query = ['v1', root, selector.to_param, opts[:path]].compact.join('/').concat(rendered_fields)
+
+      response = connection.send method, query do |req|
+        req.headers.update override(@headers, opts[:headers])
+        req.params.update override(@params, opts[:params])
+        req.body = opts[:body].to_json if opts[:body]
+      end
+
+      Response.new response
     end
 
     def oauth2_options

@@ -1,24 +1,22 @@
-require 'spec_helper'
-
 describe LinkedIn::API::Companies, vcr: { cassette_name: 'companies' }  do
   subject { LinkedIn::Client.new }
 
   describe '#company' do
     it 'fetches a company profile by id' do
-      subject.company(selector: 162479)['name'].should eq 'Apple'
+      expect(subject.company(162479)['name']).to eq 'Apple'
     end
 
     it 'fetches a company profile by universal name' do
-      subject.company(selector: 'universal-name=linkedin')['name'].should eq 'LinkedIn'
+      expect(subject.company('universal-name=linkedin')['name']).to eq 'LinkedIn'
     end
 
     it 'fetches a company profile by e-mail domain' do
       companies = subject.company(filter: 'email-domain=apple.com')
-      companies['values'].first['name'].should eq 'Apple'
+      expect(companies['values'].first['name']).to eq 'Apple'
     end
 
     it 'fetches companies in bulk using their respective selectors' do
-      companies = subject.company(selector: [162479, 'universal-name=linkedin'])
+      companies = subject.company([162479, 'universal-name=linkedin'])
       companies['values'].collect { |c| c['name'] }.should eq ['Apple', 'LinkedIn']
     end
 
@@ -41,6 +39,7 @@ describe LinkedIn::API::Companies, vcr: { cassette_name: 'companies' }  do
 
     it "should raise AccessDeniedError when LinkedIn returns 403 status code" do
       pending
+      pass
     end
   end
 end

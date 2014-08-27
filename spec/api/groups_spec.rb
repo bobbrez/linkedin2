@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe LinkedIn::API::Groups do
   describe '#jobs' do
   end
@@ -17,9 +15,10 @@ describe LinkedIn::API::Groups do
       response.body.should == nil
       response.code.should == "201"
     end
-    
+
     it "should raise AccessDeniedError when LinkedIn returns 403 status code" do
       pending
+      pass
     end
   end
 end

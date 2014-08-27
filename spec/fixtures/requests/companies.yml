@@ -2,17 +2,19 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/companies/162479?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/companies/162479?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.8.8
+      X-Li-Format:
+      - json
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -47,21 +49,23 @@ http_interactions:
           "id": 162479,
           "name": "Apple"
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 15 Oct 2013 03:40:32 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/companies/universal-name=linkedin?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/companies/universal-name=linkedin?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.8.8
+      X-Li-Format:
+      - json
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -96,21 +100,23 @@ http_interactions:
           "id": 1337,
           "name": "LinkedIn"
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 15 Oct 2013 03:40:33 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/companies/?email-domain=apple.com&oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/companies?email-domain=apple.com&oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.8.8
+      X-Li-Format:
+      - json
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -148,21 +154,23 @@ http_interactions:
             "name": "Apple"
           }]
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 15 Oct 2013 03:40:33 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/companies::(162479,universal-name=linkedin)?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/companies::(162479,universal-name=linkedin)?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.8.8
+      X-Li-Format:
+      - json
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -208,21 +216,23 @@ http_interactions:
             }
           ]
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 15 Oct 2013 03:40:33 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/companies/?is-company-admin=true&oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/companies?is-company-admin=true&oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
       - Faraday v0.8.8
+      X-Li-Format:
+      - json
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -253,6 +263,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"_total": 0}'
-    http_version: 
+    http_version:
   recorded_at: Tue, 15 Oct 2013 03:40:34 GMT
 recorded_with: VCR 2.5.0

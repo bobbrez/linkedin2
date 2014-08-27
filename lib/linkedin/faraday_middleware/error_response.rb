@@ -1,6 +1,6 @@
 module LinkedIn
   module FaradayMiddleware
-    class LinkedinErrorResponse < Faraday::Response::Middleware
+    class ErrorResponse < Faraday::Response::Middleware
       ERRORS = {
         400 => BadRequest,
         401 => Unauthorized,
@@ -13,16 +13,8 @@ module LinkedIn
         status = env[:status].to_i
         error = ERRORS[status] || Error
 
-        raise error.new response_values(env) if status >= 400
-      end
-
-      def response_values(env)
-        {
-          request: OpenStruct.new(headers: env[:request_headers], uri: env[:url]),
-          response: env[:response]
-        }
+        raise error.new Hashie::Mash.new(env) if status >= 400
       end
     end
   end
 end
-

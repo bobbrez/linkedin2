@@ -1,13 +1,12 @@
-require 'spec_helper'
-
-describe LinkedIn::API::Profiles, vcr: { cassette_name: 'network_updates' } do
+describe LinkedIn::API::NetworkUpdates, vcr: { cassette_name: 'network_updates' } do
   subject { LinkedIn::Client.new }
 
   describe '#network_updates' do
     it 'fetches network updates for the current user' do
       network_updates = subject.network_updates
-      network_updates['_total'].should eq 13
-      network_updates['values'].should have(10).things
+      binding.pry
+      expect(network_updates['_total']).to eq 13
+      expect(network_updates['values']).to have(10).things
     end
 
     it 'fetches network updates by key' do

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/people/~/network/updates?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/people/~/network/updates?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -495,11 +495,11 @@ http_interactions:
             }
           ]
         }
-    http_version: 
+    http_version:
   recorded_at: Sun, 13 Oct 2013 23:16:44 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
@@ -509,7 +509,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -613,11 +613,11 @@ http_interactions:
             "values": [{"name": "person/skills"}]
           }
         }
-    http_version: 
+    http_version:
   recorded_at: Sun, 13 Oct 2013 23:18:45 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1/update-comments?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1/update-comments?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
@@ -627,7 +627,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -684,11 +684,11 @@ http_interactions:
             "timestamp": 1381706181420
           }]
         }
-    http_version: 
+    http_version:
   recorded_at: Sun, 13 Oct 2013 23:18:53 GMT
 - request:
     method: get
-    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1/likes?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8&format=json
+    uri: https://api.linkedin.com/v1/people/~/network/updates/key=PROF-18939563-5794095336964247552-*1/likes?oauth2_access_token=AQUJwEF40pJUbVxsW_mujQ3QCiXvlTnMFk55SlfVPYRcAPdsn1oE1Hm8Ldlc61o57k96i04ufG81KFdPJIOSJswXsGyZ0tk9IMZea8sfNXMGMnZgikQJUQPkmRVYVw9BP1qH9tp7hJF32DQtzkBB_NE8xPASPVgXVWbbntChGyYqqDvF1p8
     body:
       encoding: US-ASCII
       string: ''
@@ -698,7 +698,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       server:
       - Apache-Coyote/1.1
@@ -738,6 +738,6 @@ http_interactions:
             "lastName": "Testjordan"
           }}]
         }
-    http_version: 
+    http_version:
   recorded_at: Sun, 13 Oct 2013 23:19:02 GMT
 recorded_with: VCR 2.5.0
