@@ -18,7 +18,6 @@ module LinkedIn
 
       def configuration
         @configuration ||= OpenStruct.new default_config
-        self
       end
 
       def reset
@@ -29,7 +28,6 @@ module LinkedIn
     module InstanceConfiguration
       def configuration
         @configuration ||= self.class.configuration.dup
-        self
       end
 
       def reset
@@ -46,7 +44,7 @@ module LinkedIn
         self.configuration
       end
 
-      def load(file_path='linkedin.yml')
+      def load(file_path = 'linkedin.yml')
         config = YAML::load(File.open(file_path)).symbolize_keys
         configure config
       end
