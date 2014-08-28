@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-collection_matchers', '1.0.0'
   spec.add_development_dependency 'webmock', '~> 1.18.0'
   spec.add_development_dependency 'simplecov', '~> 0.9.0'
+  spec.add_development_dependency 'coveralls', '~> 0.7.1'
   spec.add_development_dependency 'vcr', '~> 2.5'
 
   spec.add_development_dependency 'yard'
