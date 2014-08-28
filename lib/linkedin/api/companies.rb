@@ -1,7 +1,7 @@
 module LinkedIn
   module API
     module Companies
-      def company(*selector, filter: filter, **opts)
+      def company(*selector, filter: nil, **opts)
         root = 'companies'
 
         selector.compact!

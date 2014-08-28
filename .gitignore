@@ -17,3 +17,4 @@ test/version_tmp
 tmp
 linkedin.yml
 .DS_Store
+.ruby-version

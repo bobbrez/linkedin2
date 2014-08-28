@@ -1,7 +1,7 @@
 module LinkedIn
   module API
     module NetworkUpdates
-      def network_updates(selector = '~', key: key, type: type, **opts)
+      def network_updates(selector = '~', key: nil, type: nil, **opts)
         path = ['network','updates']
         path << { key: key }.to_param if key
         path << type

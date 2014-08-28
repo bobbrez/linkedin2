@@ -42,7 +42,7 @@ module LinkedIn
       global.to_h.merge overrides.to_h
     end
 
-    def execute(root, method: :get, selector: nil, fields: fields, **opts)
+    def execute(root, method: :get, selector: nil, fields: nil, **opts)
       rendered_fields = Fields.render fields
       query = ['v1', root, selector.to_param, opts[:path]].compact.join('/').concat(rendered_fields)
 

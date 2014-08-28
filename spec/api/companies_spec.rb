@@ -17,11 +17,11 @@ describe LinkedIn::API::Companies, vcr: { cassette_name: 'companies' }  do
 
     it 'fetches companies in bulk using their respective selectors' do
       companies = subject.company([162479, 'universal-name=linkedin'])
-      companies['values'].collect { |c| c['name'] }.should eq ['Apple', 'LinkedIn']
+      expect(companies['values'].collect { |c| c['name'] }).to eq ['Apple', 'LinkedIn']
     end
 
     it 'fetches companies that the current user is an adminstrator of' do
-      subject.company(filter: 'is-company-admin=true')['_total'].should eq 0
+      expect(subject.company(filter: 'is-company-admin=true')['_total']).to eq 0
     end
   end
 
