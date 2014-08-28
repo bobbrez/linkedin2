@@ -1,7 +1,7 @@
 # LinkedIn 2
-[![Build Status](https://travis-ci.org/bobbrez/linkedin2.png?branch=master)](https://travis-ci.org/bobbrez/linkedin2)
-[![Code Climate](https://codeclimate.com/github/bobbrez/linkedin2.png)](https://codeclimate.com/github/bobbrez/linkedin2)
-
+[![Build Status](https://travis-ci.org/bobbrez/linkedin2.svg?branch=master)](https://travis-ci.org/bobbrez/linkedin2)
+[![Coverage Status](https://img.shields.io/coveralls/bobbrez/linkedin2.svg)](https://coveralls.io/r/bobbrez/linkedin2)
+[![Code Climate](https://codeclimate.com/github/bobbrez/linkedin2/badges/gpa.svg)](https://codeclimate.com/github/bobbrez/linkedin2)
 A modernized LinkedIn Ruby client.
 
 ## Installation
