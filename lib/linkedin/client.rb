@@ -3,48 +3,37 @@ module LinkedIn
     include Configuration
     include LinkedIn::API
 
-    attr_reader :headers, :params
-
     def initialize(**config, &block)
       configure config, &block
-      self.auth.access_token = self.configuration.access_token.to_s
-      @headers = { 'User-Agent' => "LinkedIn2 Gem v#{ LinkedIn::VERSION }" }
     end
 
-    def auth
-      @auth ||= Auth.new
+    def credentials
+      @credentials ||= Credentials.new configuration
     end
 
     def connection
       @connection ||= Faraday.new 'https://api.linkedin.com' do |conn|
         conn.request :json
         conn.request :url_encoded
-        conn.request :linkedin_auth, auth
+        conn.request :linkedin_credentials, configuration
         conn.request :linkedin_format
+        conn.request :linkedin_user_agent
 
         conn.response :linkedin_errors
         conn.response :mashify
-        conn.response :logger, configuration[:logger]
+        conn.response :logger, configuration.logger
         conn.response :json, content_type: /\bjson$/
 
         conn.adapter Faraday.default_adapter
       end
     end
 
-    def self.default_config
-      {
-        request_format: :json,
+    def headers
+      @headers ||= {}
+    end
 
-        key: nil,
-        secret: nil,
-        access_token: nil,
-
-        scope: ['r_basicprofile'],
-        state: Utils.generate_random_state,
-        redirect_uri: 'http://localhost',
-
-        logger: Logger.new('/dev/null')
-      }
+    def params
+      @params ||= {}
     end
 
     private
@@ -64,12 +53,6 @@ module LinkedIn
       end
 
       Response.new response
-    end
-
-    def oauth2_options
-      { site:          'https://api.linkedin.com',
-        authorize_url: 'https://www.linkedin.com/uas/oauth2/authorization',
-        token_url:     'https://www.linkedin.com/uas/oauth2/accessToken' }
     end
   end
 end

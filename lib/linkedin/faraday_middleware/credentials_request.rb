@@ -1,18 +1,18 @@
 module LinkedIn
   module FaradayMiddleware
-    class AuthRequest < Faraday::Middleware
+    class CredentialsRequest < Faraday::Middleware
       PARAM_NAME  = 'oauth2_access_token'.freeze
 
       extend Forwardable
       def_delegators :'Faraday::Utils', :parse_query, :build_query
 
-      def initialize(app, auth)
+      def initialize(app, credentials)
         super app
-        @auth = auth
+        @credentials = credentials
       end
 
       def call(env)
-        params = query_params(env[:url]).reverse_merge PARAM_NAME => @auth.access_token
+        params = query_params(env[:url]).reverse_merge PARAM_NAME => @credentials.access_token
         token = params[PARAM_NAME]
 
         env[:url].query = build_query params unless token.blank?

@@ -1,22 +1,39 @@
 module LinkedIn
   module Configuration
     module ClassConfiguration
+      def default_config
+        {
+          request_format: :json,
+
+          app_key: nil,
+          app_secret: nil,
+          access_token: nil,
+
+          scope: ['r_basicprofile'],
+          redirect_uri: 'http://localhost',
+
+          logger: Logger.new('/dev/null')
+        }
+      end
+
       def configuration
-        @configuration ||= reset
+        @configuration ||= OpenStruct.new default_config
+        self
       end
 
       def reset
-        @configuration = OpenStruct.new default_config
+        configuration.marshal_load default_config
       end
     end
 
     module InstanceConfiguration
       def configuration
-        @configuration ||= reset
+        @configuration ||= self.class.configuration.dup
+        self
       end
 
       def reset
-        @configuration = self.class.configuration.dup
+        @configuration.marshal_load self.class.configuration
       end
     end
 

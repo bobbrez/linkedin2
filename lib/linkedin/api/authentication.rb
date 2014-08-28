@@ -1,12 +1,10 @@
 module LinkedIn
   module API
     module Authentication
-      attr_reader :state
-
-      def authorize_url(params = {})
+      def authorize_url(**params)
         params.reverse_merge! config.to_h.slice :scope, :state, :redirect_uri
         params[:scope] = serialize_scope params[:scope]
-        auth_code.authorize_url params
+        credentials.auth_code.authorize_url params
       end
 
       def request_access_token(authorization_code, params = {})
