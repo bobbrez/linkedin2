@@ -1,11 +1,11 @@
 module LinkedIn
   module API
     module Messaging
-      def send_message(subject, message, recipient_selectors)
+      def message(subject, message, recipient_selectors, **opts)
         message_body = build_message_body selectors: [recipient_selectors].flatten,
                                           subject: subject, message: message
 
-        execute 'people/~/mailbox', method: :post, body: message_body
+        execute 'people/~/mailbox', opts.merge(method: :post, body: message_body)
       end
 
       private
