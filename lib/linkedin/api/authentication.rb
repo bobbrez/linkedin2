@@ -13,7 +13,7 @@ module LinkedIn
         params.reverse_merge! redirect_uri: configuration.redirect_uri
         opts = { mode: :query, param_name: 'oauth2_access_token' }
 
-        self.access_token = auth_code.get_token authorization_code, params, opts
+        credentials.auth_code.get_token authorization_code, params, opts
       end
 
       private
