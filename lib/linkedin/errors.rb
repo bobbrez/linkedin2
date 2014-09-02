@@ -4,8 +4,8 @@ module LinkedIn
   class ServiceError < Error
     attr_reader :source
 
-    def initialize(response)
-      @source = response
+    def initialize(response = {})
+      @source = Hashie::Mash.new response
     end
 
     def message

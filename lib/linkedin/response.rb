@@ -1,17 +1,19 @@
 module LinkedIn
-  class Response
-    extend Forwardable
+  class Response < Hashie::Mash
+    attr_reader :_response
 
-    def_delegators :source, :[]
-
-    attr_reader :raw
-
-    def initialize(raw)
-      @raw = raw
+    def initialize(response)
+      super response.body
+      @_response = response
     end
 
-    def source
-      raw.body
+    def method_missing(method, *args, &block)
+      case method.to_s
+      when /^_(.+)/
+        _response.send $1.to_sym, *args, &block
+      else
+        super
+      end
     end
   end
 end

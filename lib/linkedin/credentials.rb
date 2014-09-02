@@ -13,7 +13,7 @@ module LinkedIn
     end
 
     def client
-      @client ||= OAuth2::Client.new @configuration.app_key, @configuration.app_secret, oauth2_options
+      @client ||= OAuth2::Client.new @configuration.key, @configuration.secret, oauth2_options
     end
 
     private

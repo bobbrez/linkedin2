@@ -4,7 +4,6 @@ module LinkedIn
       def profile(selector = '~', **opts)
         execute 'people', opts.merge(selector: selector)
       end
-      alias :shared_connections :profile
 
       def connections(selector = '~', **opts)
         execute 'people', opts.merge(selector: selector, path: 'connections')
