@@ -3,7 +3,7 @@ module LinkedIn
     module Invitation
       def connect_with(recipient_selector, subject, message, type: :friend, x_auth_token: nil)
         if x_auth_token.blank?
-          target_profile = profile recipient_selector, Fields::API_STD_PROFILE_REQ
+          target_profile = profile recipient_selector, Fields::PROFILE_API_STD_PROFILE_REQ
           x_auth_token = target_profile.body.apiStandardProfileRequest_.headers_.values_.first.value
         end
 
