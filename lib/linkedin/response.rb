@@ -1,10 +1,10 @@
 module LinkedIn
   class Response
-    attr_reader :_response
+    attr_reader :_response, :_body
 
     def initialize(response)
       @_response = response
-      @body = response.body
+      @_body = response.body
     end
 
     def _status
@@ -12,7 +12,7 @@ module LinkedIn
     end
 
     def method_missing(method, *args, &block)
-      _response.body.send method, *args, &block
+      _body.send method, *args, &block
     end
   end
 end
