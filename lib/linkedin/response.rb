@@ -4,6 +4,7 @@ module LinkedIn
 
     def initialize(response)
       @_response = response
+      @body = response.body
     end
 
     def _status
