@@ -2,7 +2,7 @@ module LinkedIn
   module API
     module People
       def profile(selector = '~', **opts)
-        execute 'people', opts.merge(selector: selector)
+        execute 'people', { selector: selector }.merge(opts)
       end
 
       def connections(selector = '~', **opts)

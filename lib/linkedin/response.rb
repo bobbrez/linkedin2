@@ -1,19 +1,17 @@
 module LinkedIn
-  class Response < Hashie::Mash
+  class Response
     attr_reader :_response
 
     def initialize(response)
-      super response.body
       @_response = response
     end
 
+    def _status
+      _response.status
+    end
+
     def method_missing(method, *args, &block)
-      case method.to_s
-      when /^_(.+)/
-        _response.send $1.to_sym, *args, &block
-      else
-        super
-      end
+      _response.body.send method, *args, &block
     end
   end
 end
