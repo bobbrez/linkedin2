@@ -21,6 +21,24 @@ module LinkedIn
 
         execute root, opts.merge(selector: selector)
       end
-    end
+
+      # to call this, 
+      # client.company_search 'nike', fields: company_api_fields
+      # https://api.linkedin.com/v1/company-search?keywords=nike
+      # 
+      # client.company_search 'nike', 'footwear', fields: company_api_fields
+      # https://api.linkedin.com/v1/company-search?keywords=nike%20footwear
+      # 
+      # client.company_search 'nike', 'footwear', 'kobe', 'yellow', hq_only: true, fields: company_api_fields
+      # https://api.linkedin.com/v1/company-search?keywords=nike%20footwear%20kobe%20yellow&hq-only=true
+
+      def company_search(*keywords, **opts)
+
+        opts[:params] = {} if opts[:params].blank?
+        opts[:params].merge! keywords: keywords.compact!.join(' ')
+
+        execute 'company-search', opts
+      end
+    end    
   end
 end
