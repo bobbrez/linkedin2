@@ -25,6 +25,36 @@ describe LinkedIn::API::Companies, vcr: { cassette_name: 'companies' }  do
     end
   end
 
+  describe '#company_search' do
+    it 'fetches company profiles by a search term', vcr: { cassette_name: 'company-search/by_single_keywords_option' } do
+      expect(subject.company_search('apple')['companies']['values'].any? { |h| h.name.include? 'Apple' }).to be true
+    end
+
+    it 'fetches company profiles with fields included in the request', vcr: { cassette_name: 'company-search/by_keywords_options_with_fields' } do
+
+      expect(subject.company_search('apple', fields: [{'companies' => ['id', 'name', 'industries', 'description', 'specialties']}, 'num-results'])['companies']['values'].any? { |h| h.name.include? 'Apple' }).to be true
+    end
+
+    it 'fetches company profiles with pagination', vcr: { cassette_name: 'company-search/by_single_keywords_option_with_pagination' } do
+
+      companies = (subject.company_search('apple', filter: ["count=5", "start=5"])) 
+
+      expect(companies['companies']['_count']).to eq 5
+      expect(companies['companies']['_start']).to eq 5
+    end
+
+    it 'fetches company profiles and returns facets', vcr: { cassette_name: 'company-search/by_single_keywords_option_with_facets_to_return' } do
+
+      companies = (subject.company_search('apple', facets: 'industry'))
+
+      expect(companies['companies']['values'].any? { |h| h.name.include? 'Apple' }).to be true
+      expect(companies['facets']['_total']).to eq 1
+      expect(companies['facets']['buckets']['name']).to eq 'Industry'
+
+    end
+
+  end
+
   context 'todo' do
     it "should load correct company data" do
       pending
