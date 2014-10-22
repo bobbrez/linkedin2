@@ -49,7 +49,6 @@ describe LinkedIn::API::Companies, vcr: { cassette_name: 'companies' }  do
 
       expect(companies['companies']['values'].any? { |h| h.name.include? 'Apple' }).to be true
       expect(companies['facets']['_total']).to eq 1
-      expect(companies['facets']['buckets']['name']).to eq 'Industry'
 
     end
 
