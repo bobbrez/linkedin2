@@ -21,7 +21,7 @@ describe LinkedIn::FaradayMiddleware::ErrorResponse, vcr: { cassette_name: 'inva
 
     it 'includes the Faraday request/response object for further introspection by the consumer' do
       expect { subject.profile }.to raise_error do |error|
-        error.request.headers['User-Agent'].should eq 'LinkedIn2 Gem v0.0.16'
+        error.request.headers['User-Agent'].should eq 'LinkedIn2 Gem v0.0.18'
         error.response.headers['server'].should eq 'Apache-Coyote/1.1'
       end
     end
